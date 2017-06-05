@@ -177,15 +177,21 @@ Install systemd-boot:
 Configure it in */boot/loader/loader.conf* as you like, for example:
 
 > default  arch
+>
 > timeout  0
+>
 > editor   0
 
 And */boot/loader/entries/arch.conf* (replace PARTUUID in the example with your PARTUUID):
 
 > title          Arch Linux
+>
 > linux          /vmlinuz-linux
+>
 > initrd         /intel-ucode.img
+>
 > initrd         /initramfs-linux.img
+>
 > options        root=PARTUUID=12345678-1abc-2de3-f456-78g91h234567 rw
 
 ## Reboot
