@@ -1,18 +1,12 @@
-# Arch Linux Guide
+# Arch Linux Installation Guide
 
-By [@khuedoan](https://fb.com/KhueDoanID)
-
-This document is a guide for installing and customizing Arch Linux for my personal use. Feel free to use it as your own.
-
-## Installation
-
-### Verify the boot mode
+## Verify the boot mode
 
 Check if the directory exists:
 
 `# ls /sys/firmware/efi/efivars`
 
-### Connect to the internet
+## Connect to the internet
 
 If you are installing Arch Linux on a laptop, connect to wifi if needed:
 
@@ -22,7 +16,7 @@ Check if internet connectivity is available:
 
 `# ping -c 3 archlinux.org`
 
-### Update the system clock
+## Update the system clock
 
 Ensure the system clock is accurate:
 
@@ -34,7 +28,7 @@ Check the service status:
 
 Time zone may not correct, we will adjust it later.
 
-### Partition the disks
+## Partition the disks
 
 Identify disks:
 
@@ -61,7 +55,7 @@ Create boot partition and root partition:
 * Select the boot partition and hit `[   Type   ]` to choose `EFI System`
 * Hit `[   Write   ]` then type `yes` to save, then hit `[   Quit   ]`
 
-### Format the partitions
+## Format the partitions
 
 Format the boot partition to FAT32:
 
@@ -71,7 +65,7 @@ Format the root partition to ext4:
 
 `# mkfs.ext4 /dev/sda2`
 
-### Mount the file systems
+## Mount the file systems
 
 Mount root partition first:
 
@@ -99,13 +93,13 @@ Rank the mirrors, out put *6* fastest mirrors:
 
 * `# rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist`
 
-### Install the base and base-devel packages
+## Install the base and base-devel packages
 
 Use the pacstrap script:
 
 `# pacstrap /mnt base base-devel`
 
-### Create swap file
+## Create swap file
 
 As an alternative to creating an entire swap partition, a swap file offers the ability to vary its size on-the-fly, and is more easily removed altogether.
 
@@ -129,7 +123,7 @@ Edit fstab at */etc/fstab* to add an entry for the swap file:
 
 > /swapfile none swap defaults 0 0
 
-### Generate an fstab file
+## Generate an fstab file
 
 Use `-U` or `-L` to define by UUID or labels:
 
@@ -137,13 +131,13 @@ Use `-U` or `-L` to define by UUID or labels:
 
 Check the resulting file in */mnt/etc/fstab* afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
 
-### Chroot
+## Chroot
 
 Change root to the new system:
 
 `# arch-chroot /mnt`
 
-### Configure time zone
+## Configure time zone
 
 Set your time zone by region:
 
@@ -153,7 +147,7 @@ Generate */etc/adjtime*:
 
 `# hwclock --systohc`
 
-### Configure locale
+## Configure locale
 
 Uncomment *en_US.UTF-8 UTF-8* in */etc/locale.gen*, then generate it:
 
@@ -163,18 +157,18 @@ Set LANG variable in */etc/locale.conf*:
 
 > LANG=en_US.UTF-8
 
-### Change host name
+## Change host name
 
 Create hostname file at */etc/hostname* contain the host name, for example:
 > *ArchLinux*
 
-### Set your root password
+## Set your root password
 
 `# passwd`
 
 Enter your password then confirm it.
 
-### Install boot loader
+## Install boot loader
 
 Install systemd-boot:
 
@@ -194,7 +188,7 @@ And */boot/loader/entries/arch.conf* (replace PARTUUID in the example with your 
 > initrd         /initramfs-linux.img
 > options        root=PARTUUID=12345678-1abc-2de3-f456-78g91h234567 rw
 
-### Reboot
+## Reboot
 
 Exit the chroot environment by typing:
 
@@ -207,9 +201,3 @@ Optionally manually unmount all the partitions with:
 Restart the machine:
 
 `# reboot`
-
-## Customization
-
-
-
-
