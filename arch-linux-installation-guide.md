@@ -99,6 +99,20 @@ Use the pacstrap script:
 
 `# pacstrap /mnt base base-devel`
 
+## Generate an fstab file
+
+Use `-U` or `-L` to define by UUID or labels:
+
+`# genfstab -U /mnt >> /mnt/etc/fstab`
+
+Check the resulting file in */mnt/etc/fstab* afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
+
+## Chroot
+
+Change root to the new system:
+
+`# arch-chroot /mnt`
+
 ## Create swap file
 
 As an alternative to creating an entire swap partition, a swap file offers the ability to vary its size on-the-fly, and is more easily removed altogether.
@@ -122,20 +136,6 @@ Activate the swap file:
 Edit fstab at */etc/fstab* to add an entry for the swap file: 
 
 > /swapfile none swap defaults 0 0
-
-## Generate an fstab file
-
-Use `-U` or `-L` to define by UUID or labels:
-
-`# genfstab -U /mnt >> /mnt/etc/fstab`
-
-Check the resulting file in */mnt/etc/fstab* afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
-
-## Chroot
-
-Change root to the new system:
-
-`# arch-chroot /mnt`
 
 ## Configure time zone
 
