@@ -41,7 +41,7 @@ Clean the entire disk (**do not** do this if you want to keep your data):
 * `# gdisk /dev/sda`
 * `x` for extra functionality
 * `z` to *zap* (destroy) GPT data structures and exit
-* `y` to preoceed
+* `y` to proceed
 * `y` to blank out MBR
 
 We need at least 2 partitions, one for boot and one for root.
