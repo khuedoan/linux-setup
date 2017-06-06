@@ -99,8 +99,6 @@ Use `-U` or `-L` to define by UUID or labels:
 
 `# genfstab -U /mnt >> /mnt/etc/fstab`
 
-Check the resulting file in `/mnt/etc/fstab` afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
-
 ## Chroot
 
 Change root to the new system:
@@ -186,7 +184,7 @@ And `/boot/loader/entries/arch.conf` (replace PARTUUID in the example with your 
 >
 > initrd         /initramfs-linux.img
 >
-> options        root=PARTUUID=12345678-1abc-2de3-f456-78g91h234567 rw
+> options        root=/dev/sda2 rw
 
 ## Reboot
 
