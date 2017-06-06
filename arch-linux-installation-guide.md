@@ -166,7 +166,7 @@ Enter your password then confirm it.
 
 Install systemd-boot:
 
-`# bootctl --path=/dev/sda2 install`
+`# bootctl --path=/boot install`
 
 Configure it in `/boot/loader/loader.conf` as you like, for example:
 
