@@ -26,8 +26,6 @@ Check the service status:
 
 `# timedatectl status`
 
-Time zone may not correct, we will adjust it later.
-
 ## Partition the disks
 
 Identify disks:
