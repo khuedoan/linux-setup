@@ -105,7 +105,7 @@ As an alternative to creating an entire swap partition, a swap file offers the a
 
 Create a 8 GiB (depend on your RAM) swap file:
 
-`# fallocate -l 512M /swapfile`
+`# fallocate -l 8G /swapfile`
 
 Set the right permissions:
 
