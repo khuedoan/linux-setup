@@ -99,7 +99,7 @@ Use `-U` or `-L` to define by UUID or labels:
 
 `# genfstab -U /mnt >> /mnt/etc/fstab`
 
-Check the resulting file in */mnt/etc/fstab* afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
+Check the resulting file in `/mnt/etc/fstab` afterwards, and edit it in case of errors. Save the PARTUUID of your root partition for later.
 
 ## Chroot
 
@@ -127,7 +127,7 @@ Activate the swap file:
 
 `# swapon /swapfile`
 
-Edit fstab at */etc/fstab* to add an entry for the swap file: 
+Edit fstab at `/etc/fstab` to add an entry for the swap file: 
 
 > /swapfile none swap defaults 0 0
 
@@ -137,24 +137,24 @@ Set your time zone by region:
 
 `# ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime`
 
-Generate */etc/adjtime*:
+Generate `/etc/adjtime`:
 
 `# hwclock --systohc`
 
 ## Configure locale
 
-Uncomment *en_US.UTF-8 UTF-8* in */etc/locale.gen*, then generate it:
+Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen`, then generate it:
 
 `# locale-gen`
 
-Set LANG variable in */etc/locale.conf*:
+Set LANG variable in `/etc/locale.conf`:
 
 > LANG=en_US.UTF-8
 
 ## Change host name
 
-Create hostname file at */etc/hostname* contain the host name, for example:
-> *ArchLinux*
+Create hostname file at `/etc/hostname` contain the host name, for example:
+> ArchLinux
 
 ## Set your root password
 
@@ -168,7 +168,7 @@ Install systemd-boot:
 
 `# bootctl --path=/dev/sda2 install`
 
-Configure it in */boot/loader/loader.conf* as you like, for example:
+Configure it in `/boot/loader/loader.conf` as you like, for example:
 
 > default  arch
 >
@@ -176,7 +176,7 @@ Configure it in */boot/loader/loader.conf* as you like, for example:
 >
 > editor   0
 
-And */boot/loader/entries/arch.conf* (replace PARTUUID in the example with your PARTUUID):
+And `/boot/loader/entries/arch.conf` (replace PARTUUID in the example with your PARTUUID):
 
 > title          Arch Linux
 >
