@@ -85,10 +85,6 @@ Backup the existing mirrorlist:
 
 * `# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup`
 
-Uncommnent every mirror:
-
-* `# sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup`
-
 Rank the mirrors, out put *6* fastest mirrors:
 
 * `# rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist`
