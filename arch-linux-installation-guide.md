@@ -295,6 +295,6 @@ Install **oh-my-zsh**:
 
 `$ pacaur -S oh-my-zsh`
 
-## Install vim
+## Install text editor and terminal
 
-`$ sudo pacman -S vim`
+`$ sudo pacman -S vim rxvt-unicode`
