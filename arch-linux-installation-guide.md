@@ -294,3 +294,7 @@ Set **zsh** as default:
 Install **oh-my-zsh**:
 
 `$ pacaur -S oh-my-zsh`
+
+## Install vim
+
+`$ sudo pacman -S vim`
