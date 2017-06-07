@@ -1,5 +1,7 @@
 # Arch Linux Installation Guide
 
+Installation guide and basic configurations for Arch Linux
+
 ## Verify the boot mode
 
 Check if the directory exists:
@@ -125,7 +127,7 @@ Activate the swap file:
 
 `# swapon /swapfile`
 
-Edit fstab at `/etc/fstab` to add an entry for the swap file: 
+Edit fstab at `/etc/fstab` to add an entry for the swap file:
 
 > /swapfile none swap defaults 0 0
 
@@ -199,3 +201,96 @@ Optionally manually unmount all the partitions with:
 Restart the machine:
 
 `# reboot`
+
+## Login
+
+Login with your root account after the machine has rebooted.
+
+## Add new user
+
+Add a new user named `khuedoan`:
+
+`# useradd -m -G wheel -s /bin/bash khuedoan`
+
+Protect the newly created user `khuedoan` with a password:
+
+`# passwd`
+
+Establish nano as the **visudo** editor for the duration of the current shell session:
+
+`# EDITOR=nano visudo`
+
+Then uncomment `%wheel ALL=(ALL) ALL` to allow members of group `wheel` sudo access, uncomment `Defaults targetpw` and change it to `Defaults rootpw` to ask for the root password instead of the user password (then change the comment beside it accordingly).
+
+## Service management
+
+Show system status:
+
+`# systemctl status`
+
+List failed units:
+
+`# systemctl --failed`
+
+## Install pacaur
+
+Logout if you are using the root account and login with `khuedoan`.
+
+Install **git**:
+
+`$ sudo pacman -S git`
+
+Make a Downloads folder to work in it:
+
+`$ mkdir Downloads && cd Downloads`
+
+
+Clone the git repository of **cower**:
+
+`$ git clone https://aur.archlinux.org/cower.git`
+
+`$ cd cower`
+
+Make the package and install it:
+
+`$ makepkg -s --skippgpcheck`
+
+`$ sudo pacman -U cower*.pkg.tar.xz`
+
+Clone the git repository of **pacaur**:
+
+`$ git clone https://aur.archlinux.org/pacaur.git`
+
+`$ cd pacaur`
+
+Make the package and install it:
+
+`$ makepkg -s`
+
+`$ sudo pacman -U pacaur*.pkg.tar.xz`
+
+## Install zsh
+
+See what shell is currently being used:
+
+`$ echo $SHELL`
+
+Install the **zsh** package:
+
+`$ sudo pacman -S zsh zsh-completions`
+
+Initial configuration:
+
+`$ zsh`
+
+List all installed shells:
+
+`chsh -l`
+
+Set **zsh** as default:
+
+`chsh -s /bin/zsh`
+
+Install **oh-my-zsh**:
+
+`$ pacaur -S oh-my-zsh`
