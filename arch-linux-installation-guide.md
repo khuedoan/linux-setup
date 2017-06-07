@@ -174,7 +174,7 @@ Configure it in `/boot/loader/loader.conf` as you like, for example:
 >
 > editor   0
 
-And `/boot/loader/entries/arch.conf` (replace PARTUUID in the example with your PARTUUID):
+And `/boot/loader/entries/arch.conf`:
 
 > title          Arch Linux
 >
