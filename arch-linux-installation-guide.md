@@ -10,7 +10,7 @@ Check if the directory exists:
 
 ## Connect to the internet
 
-If you are installing Arch Linux on a laptop, connect to wifi if needed:
+Connect to Wi-Fi network:
 
 `# wifi-menu`
 
@@ -34,21 +34,19 @@ Identify disks:
 
 `# lsblk`
 
-Disks are assigned to a *block device* such as `/dev/sda`.
+Disks are assigned to a *block device* such as `/dev/nvme0n1`.
 
 Clean the entire disk (**do not** do this if you want to keep your data):
 
-* `# gdisk /dev/sda`
+* `# gdisk /dev/nvme0n1`
 * `x` for extra functionality
 * `z` to *zap* (destroy) GPT data structures and exit
 * `y` to proceed
 * `y` to blank out MBR
 
-We need at least 2 partitions, one for boot and one for root.
-
 Create boot partition and root partition:
 
-* `# cfdisk /dev/sda`
+* `# cfdisk /dev/nvme0n1`
 * Select `gpt`
 * Hit `[   New   ]` to create a new patition
 * Give the boot partition `1G` and let the rest for the root partition
@@ -59,23 +57,23 @@ Create boot partition and root partition:
 
 Format the boot partition to FAT32:
 
-`# mkfs.fat -F32 /dev/sda1`
+`# mkfs.fat -F32 /dev/nvme0n1p1`
 
 Format the root partition to ext4:
 
-`# mkfs.ext4 /dev/sda2`
+`# mkfs.ext4 /dev/nvme0n1p2`
 
 ## Mount the file systems
 
 Mount root partition first:
 
-`# mount /dev/sda2 /mnt`
+`# mount /dev/nvme0n1p2 /mnt`
 
 Then create mount point for boot partition and mount it accordingly:
 
 `# mkdir /mnt/boot`
 
-`# mount /dev/sda1 /mnt/boot`
+`# mount /dev/nvme0n1p1 /mnt/boot`
 
 ## Select the mirrors
 
@@ -85,13 +83,13 @@ Backup the existing mirrorlist:
 
 * `# cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup`
 
-Rank the mirrors, out put *6* fastest mirrors:
+Rank the mirrors, output the *6* fastest mirrors:
 
 * `# rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist`
 
 ## Install the base and base-devel packages
 
-Use the pacstrap script:
+Use the **pacstrap** script:
 
 `# pacstrap /mnt base base-devel`
 
@@ -111,9 +109,9 @@ Change root to the new system:
 
 As an alternative to creating an entire swap partition, a swap file offers the ability to vary its size on-the-fly, and is more easily removed altogether.
 
-Create a 8 GiB (depend on your RAM) swap file:
+Create a 32 GB (depend on your RAM) swap file:
 
-`# fallocate -l 8G /swapfile`
+`# fallocate -l 32G /swapfile`
 
 Set the right permissions:
 
@@ -186,7 +184,7 @@ And `/boot/loader/entries/arch.conf`:
 >
 > initrd         /initramfs-linux.img
 >
-> options        root=/dev/sda2 rw
+> options        root=/dev/nvme0n1p2 rw
 
 ## Reboot
 
@@ -240,7 +238,7 @@ Install **git**:
 
 `$ sudo pacman -S git`
 
-Make a Downloads folder to work in it:
+Create an empty working directory named `Downloads`:
 
 `$ mkdir Downloads && cd Downloads`
 
@@ -294,7 +292,3 @@ Set **zsh** as default:
 Install **oh-my-zsh**:
 
 `$ pacaur -S oh-my-zsh`
-
-## Install text editor and terminal
-
-`$ sudo pacman -S vim rxvt-unicode`
