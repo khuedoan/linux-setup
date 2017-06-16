@@ -1,4 +1,4 @@
-Copyright (C) 2017 Doan Khue - All Rights Reserved
+Copyright © 2017 Doan Khue - All Rights Reserved
 You may use, distribute and modify this code under the
 terms of the GNU GENERAL PUBLIC LICENSE license.
 
