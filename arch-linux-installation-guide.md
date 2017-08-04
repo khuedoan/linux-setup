@@ -167,7 +167,7 @@ Create hostname file at `/etc/hostname` contain the host name, for example:
 Enter your password then confirm it.
 
 ## Install boot loader
-Install intel-ucode
+Install microcode
 
 `# pacman -S intel-ucode`
 
