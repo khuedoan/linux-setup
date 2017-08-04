@@ -168,6 +168,7 @@ Enter your password then confirm it.
 
 ## Install boot loader
 Install intel-ucode
+
 `# pacman -S intel-ucode`
 
 Install systemd-boot:
