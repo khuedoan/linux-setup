@@ -221,7 +221,7 @@ Add a new user named `khuedoan`:
 
 Protect the newly created user `khuedoan` with a password:
 
-`# passwd`
+`# passwd khuedoan`
 
 Establish nano as the **visudo** editor for the duration of the current shell session:
 
