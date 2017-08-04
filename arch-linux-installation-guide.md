@@ -297,7 +297,3 @@ List all installed shells:
 Set **zsh** as default:
 
 `chsh -s /bin/zsh`
-
-Install **oh-my-zsh**:
-
-`$ pacaur -S oh-my-zsh`
