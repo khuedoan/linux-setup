@@ -258,7 +258,6 @@ Create an empty working directory named `Downloads`:
 
 `$ mkdir Downloads && cd Downloads`
 
-
 Clone the git repository of **cower**:
 
 `$ git clone https://aur.archlinux.org/cower.git`
@@ -282,6 +281,10 @@ Make the package and install it:
 `$ makepkg -s`
 
 `$ sudo pacman -U pacaur*.pkg.tar.xz`
+
+Clean up:
+
+`$ cd ~/Downloads && rm -rf cower`
 
 ## Install zsh
 
