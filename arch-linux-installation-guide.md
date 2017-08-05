@@ -166,10 +166,16 @@ Create hostname file at `/etc/hostname` contain the host name, for example:
 
 Enter your password then confirm it.
 
-## Install boot loader
-Install microcode
+## Install optional programs
+
+Install microcode:
 
 `# pacman -S intel-ucode`
+
+Install **dialog** for usage of **wifi-menu**:
+`# pacman -S dialog`
+
+## Install boot loader
 
 Install systemd-boot:
 
