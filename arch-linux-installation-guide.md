@@ -172,9 +172,9 @@ Install microcode:
 
 `# pacman -S intel-ucode`
 
-Install **dialog** for usage of **wifi-menu**:
+Install basic package for network configuration:
 
-`# pacman -S dialog`
+`# pacman -S iw wpa_supplicant dialog`
 
 ## Install boot loader
 
