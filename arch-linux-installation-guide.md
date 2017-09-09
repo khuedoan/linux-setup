@@ -172,7 +172,7 @@ Install microcode:
 
 `# pacman -S intel-ucode`
 
-Install basic package for network configuration:
+Install basic packages for network configuration:
 
 `# pacman -S iw wpa_supplicant dialog`
 
