@@ -1,12 +1,12 @@
 # Install Vietnamese Input Method
 
-Install neccessary packages:
+## Install neccessary packages:
 
-`sudo pacman -S fcitx fcitx-unikey fcitx-im fcitx-configtool`
+`$ sudo pacman -S fcitx fcitx-unikey fcitx-im fcitx-configtool`
 
-Open `/etc/profile` to define the evironment variables:
+## Open `/etc/profile` to define the evironment variables:
 
-`sudo nano /etc/profile`
+`$ sudo nano /etc/profile`
 
 Add these line to the bottom of the file:
 
