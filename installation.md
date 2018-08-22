@@ -133,6 +133,8 @@ Activate the swap file:
 
 Edit fstab at `/etc/fstab` to add an entry for the swap file:
 
+`# nano /etc/fstab`
+
 > /swapfile none swap defaults 0 0
 
 ## Configure time zone
@@ -153,11 +155,16 @@ Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen`, then generate it:
 
 Set LANG variable in `/etc/locale.conf`:
 
+`# nano /etc/locale.conf`
+
 > LANG=en_US.UTF-8
 
 ## Change host name
 
 Create hostname file at `/etc/hostname` contain the host name, for example:
+
+`# nano /etc/hostname`
+
 > ArchLinux
 
 ## Set your root password
@@ -184,6 +191,8 @@ Install systemd-boot:
 
 Configure it in `/boot/loader/loader.conf` as you like, for example:
 
+`# nano /boot/loader/loader.conf`
+
 > default  arch
 >
 > timeout  0
@@ -191,6 +200,8 @@ Configure it in `/boot/loader/loader.conf` as you like, for example:
 > editor   0
 
 And `/boot/loader/entries/arch.conf`:
+
+`# nano /boot/loader/entries/arch.conf`
 
 > title          Arch Linux
 >
