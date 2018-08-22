@@ -246,9 +246,9 @@ List failed units:
 
 `# systemctl --failed`
 
-## Install pacaur
-
 Logout if you are using the root account and login with `khuedoan`.
+
+## Install yaourt
 
 Install **git**:
 
@@ -258,33 +258,29 @@ Create an empty working directory named `Downloads`:
 
 `$ mkdir Downloads && cd Downloads`
 
-Clone the git repository of **cower**:
+Clone the git repository of **package-query**:
 
-`$ git clone https://aur.archlinux.org/cower.git`
-
-`$ cd cower`
-
-Make the package and install it:
-
-`$ makepkg -s --skippgpcheck`
-
-`$ sudo pacman -U cower*.pkg.tar.xz`
-
-Clone the git repository of **pacaur**:
-
-`$ git clone https://aur.archlinux.org/pacaur.git`
-
-`$ cd pacaur`
+`$ git clone https://aur.archlinux.org/package-query.git`
+`$ cd package-query`
 
 Make the package and install it:
 
-`$ makepkg -s`
+`$ makepkg -si`
+`$ cd ..`
 
-`$ sudo pacman -U pacaur*.pkg.tar.xz`
+Clone the git repository of **yaourt**:
+
+`$ git clone https://aur.archlinux.org/yaourt.git`
+`$ cd yaourt`
+
+Make the package and install it:
+
+`$ makepkg -si`
+`$ cd ..`
 
 Clean up:
 
-`$ cd ~/Downloads && rm -rf cower`
+`$ cd ~ && rm -rf Downloads
 
 ## Install zsh
 
