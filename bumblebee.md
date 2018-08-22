@@ -16,15 +16,15 @@ You should have received a copy of the GNU GENERAL PUBLIC LICENSE license with t
 
 `$ sudo gpasswd -a $USER video`
 
-# Start bumblebee at boot:
+## Start bumblebee at boot:
 
 `$ sudo systemctl enable bumblebeed.service`
 
-# Restart the system:
+## Reboot:
 
 `$ sudo shutdown -r now`
 
-# Edit NVIDIA desktop icon to run with bumblebee:
+## Edit NVIDIA desktop icon to run with bumblebee:
 
 `$ sudo nano /usr/share/applications/nvidia-settings.desktop`
 
