@@ -1,4 +1,4 @@
-# Install Vietnamese Input Method
+# Vietnamese Input Method Installation Guide
 
 ## Install neccessary packages:
 
