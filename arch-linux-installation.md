@@ -265,7 +265,7 @@ Install **git**:
 
 `$ sudo pacman -S git`
 
-Build yay:
+Build **yay**:
 
 `git clone https://aur.archlinux.org/yay.git`
 
