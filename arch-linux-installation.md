@@ -150,6 +150,9 @@ Generate `/etc/adjtime`:
 ## Configure locale
 
 Uncomment `en_US.UTF-8 UTF-8` in `/etc/locale.gen`, then generate it:
+`# nano /etc/locale.gen`
+
+> en_US.UTF-8 UTF-8
 
 `# locale-gen`
 
@@ -267,15 +270,15 @@ Install **git**:
 
 Build **yay**:
 
-`git clone https://aur.archlinux.org/yay.git`
+`$ git clone https://aur.archlinux.org/yay.git`
 
-`cd yay`
+`$ cd yay`
 
-`makepkg -si`
+`$ makepkg -si`
 
 Clean up:
 
-`cd .. && rm -rf yay`
+`$ cd .. && rm -rf yay`
 
 ## Install zsh
 
