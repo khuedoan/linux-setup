@@ -259,39 +259,21 @@ List failed units:
 
 Logout if you are using the root account and login with `khuedoan`.
 
-## Install yaourt
+## Install yay
 
 Install **git**:
 
 `$ sudo pacman -S git`
 
-Create an empty working directory named `Downloads`:
+Build yay:
 
-`$ mkdir Downloads && cd Downloads`
-
-Clone the git repository of **package-query**:
-
-`$ git clone https://aur.archlinux.org/package-query.git`
-`$ cd package-query`
-
-Make the package and install it:
-
-`$ makepkg -si`
-`$ cd ..`
-
-Clone the git repository of **yaourt**:
-
-`$ git clone https://aur.archlinux.org/yaourt.git`
-`$ cd yaourt`
-
-Make the package and install it:
-
-`$ makepkg -si`
-`$ cd ..`
+`git clone https://aur.archlinux.org/yay.git`
+`cd yay`
+`makepkg -si`
 
 Clean up:
 
-`$ cd ~ && rm -rf Downloads
+`cd .. && rm -rf yay`
 
 ## Install zsh
 
