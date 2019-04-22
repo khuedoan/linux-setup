@@ -263,7 +263,7 @@ List failed units:
 
 Logout if you are using the root account and login with `khuedoan`.
 
-## Install yay
+## Install trizen
 
 Install **git**:
 
@@ -271,15 +271,15 @@ Install **git**:
 
 Build **yay**:
 
-`$ git clone https://aur.archlinux.org/yay.git`
+`$ git clone https://aur.archlinux.org/trizen.git`
 
-`$ cd yay`
+`$ cd trizen`
 
 `$ makepkg -si`
 
 Clean up:
 
-`$ cd .. && rm -rf yay`
+`$ cd .. && rm -rf trizen`
 
 ## Install zsh
 
