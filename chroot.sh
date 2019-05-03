@@ -1,6 +1,7 @@
 #!/bin/sh
 
 pacman -S efibootmgr intel-ucode networkmanager git gvim zsh
+
 fallocate -l 32G /swapfile
 chmod 600 /swapfile
 mkswap /swapfile
@@ -8,6 +9,7 @@ swapon /swapfile
 vim /etc/fstab
 echo "# Swap" >> /etc/fstab
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+
 ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen
