@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pacman -S efibootmgr intel-ucode networkmanager git gvim zsh
+pacman --noconfirm -S efibootmgr intel-ucode networkmanager git gvim zsh
 
 fallocate -l 32G /swapfile
 chmod 600 /swapfile
