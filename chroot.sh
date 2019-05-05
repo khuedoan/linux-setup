@@ -17,7 +17,9 @@ echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 echo 'Precision' > /etc/hostname
 efibootmgr -d /dev/nvme0n1 -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u 'initrd=/intel-ucode.img initrd=/initramfs-linux.img root=/dev/nvme0n1p2 rw quiet' -v
 systemctl enable NetworkManager
+echo "Changing root password"
 passwd
 useradd -m -G wheel -s /bin/zsh khuedoan
+echo "Changing user password"
 passwd khuedoan
 visudo
