@@ -1,3 +1,5 @@
+#!/bin/sh
+
 wifi-menu
 ping -c 3 archlinux.org
 timedatectl set-ntp true
