@@ -14,5 +14,6 @@ pacstrap /mnt base base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 curl https://khuedoan.me/archguide/chroot.sh > chroot.sh
 chmod +x chroot.sh
+vim chroot.sh
 cp chroot.sh /mnt
 arch-chroot /mnt /chroot.sh
