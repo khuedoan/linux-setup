@@ -32,4 +32,5 @@ useradd -m -G wheel -s /bin/zsh khuedoan
 echo "Changing user password"
 passwd khuedoan
 visudo
-rm chroot.sh
+rm /chroot.sh
+exit
