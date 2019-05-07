@@ -32,10 +32,13 @@ useradd -m -G wheel -s /bin/zsh khuedoan
 echo "Changing user password"
 passwd khuedoan
 visudo
+vim /etc/pacman.conf
+
 cd /home/khuedoan
 curl https://khuedoan.me/dotfiles/install.sh > install.sh
 chmod +x install.sh
 su -c "./install.sh" - khuedoan
 cd /
+
 rm /chroot.sh
 exit
