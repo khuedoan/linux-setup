@@ -2,7 +2,7 @@
 
 ping -c 3 archlinux.org &&
 timedatectl set-ntp true &&
-gdisk /dev/nvme0n1 &&
+sgdisk -Z /dev/nvme0n1 &&
 cfdisk /dev/nvme0n1 &&
 sleep 5 &&
 mkfs.fat -F32 /dev/nvme0n1p1 &&
