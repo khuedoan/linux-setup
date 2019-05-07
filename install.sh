@@ -1,6 +1,5 @@
 #!/bin/sh
 
-ping -c 3 archlinux.org &&
 timedatectl set-ntp true &&
 sgdisk -Z /dev/nvme0n1 &&
 cfdisk /dev/nvme0n1 &&
