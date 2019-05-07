@@ -33,6 +33,7 @@ echo "Changing user password"
 passwd khuedoan
 visudo
 vim /etc/pacman.conf
+pacman -Syy
 
 rm /chroot.sh
 exit
