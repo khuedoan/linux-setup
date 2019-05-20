@@ -28,7 +28,7 @@ echo 'options        root=/dev/nvme0n1p2 rw quiet' >> /boot/loader/entries/arch.
 systemctl enable NetworkManager
 echo "Changing root password"
 passwd
-useradd -m -G wheel -s /bin/zsh khuedoan
+useradd -m -G wheel -s /bin/zsh -c "Khue Doan" khuedoan
 echo "Changing user password"
 passwd khuedoan
 visudo
