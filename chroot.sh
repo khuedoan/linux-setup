@@ -23,7 +23,11 @@ echo 'title          Arch Linux' > /boot/loader/entries/arch.conf
 echo 'linux          /vmlinuz-linux' >> /boot/loader/entries/arch.conf
 echo 'initrd         /intel-ucode.img' >> /boot/loader/entries/arch.conf
 echo 'initrd         /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo 'options        root=/dev/nvme0n1p2 rw quiet rd.udev.log-priority=3' >> /boot/loader/entries/arch.conf
+echo 'options        root=/dev/nvme0n1p2 rw quiet' >> /boot/loader/entries/arch.conf
+
+sed -i 's/^HOOKS=(base udev/HOOKS=(base systemd/g' /etc/mkinitcpio.conf
+mkinitcpio -p linux
+echo "StandardOutput=null\nStandardError=journal+console" | SYSTEMD_EDITOR="tee -a" systemctl edit --full systemd-fsck-root.service
 
 systemctl enable NetworkManager
 echo "Changing root password"
