@@ -19,11 +19,13 @@ bootctl --path=/boot install
 echo 'default arch' > /boot/loader/loader.conf
 echo 'timeout 0' >> /boot/loader/loader.conf
 echo 'editor  0' >> /boot/loader/loader.conf
-echo 'title          Arch Linux' > /boot/loader/entries/arch.conf
-echo 'linux          /vmlinuz-linux' >> /boot/loader/entries/arch.conf
-echo 'initrd         /intel-ucode.img' >> /boot/loader/entries/arch.conf
-echo 'initrd         /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo 'options        root=/dev/nvme0n1p2 rw quiet' >> /boot/loader/entries/arch.conf
+echo 'title   Arch Linux' > /boot/loader/entries/arch.conf
+echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
+echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
+echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
+echo 'options root=/dev/nvme0n1p2 rw quiet' >> /boot/loader/entries/arch.conf
+
+#efibootmgr -d /dev/nvme0n1 -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u 'initrd=/intel-ucode.img initrd=/initramfs-linux.img root=/dev/nvme0n1p2 rw quiet' -v
 
 sed -i 's/^HOOKS=(base udev/HOOKS=(base systemd/g' /etc/mkinitcpio.conf
 mkinitcpio -p linux
