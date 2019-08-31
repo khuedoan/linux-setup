@@ -7,7 +7,8 @@ if [[ ! -f config.sh ]]; then
     echo "Missing config.sh, downloading..."
     curl -O https://khuedoan.me/archguide/config.sh
 fi
-source config.sh
+vim ./config.sh
+source ./config.sh
 
 #+------------------+
 #| Pre-installation |
