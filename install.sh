@@ -2,9 +2,9 @@
 
 # Options
 erase_disk=1
-disk='nvme0n1'
-boot_partition='p1'
-root_partition='p2'
+disk='/dev/nvme0n1'
+boot_partition="${disk}p1"
+root_partition="${disk}p2"
 ucode='intel-ucode' # leave empty to disable ucode
 swap_size='32G' # leave empty to disable swap
 hostname='Precision' 
@@ -14,17 +14,24 @@ fullname='Khue Doan'
 userpasswd=''
 bootloader='systemd-boot' # systemd-boot or efistub
 timezone='Asia/Ho_Chi_Minh'
-
-# Select the mirrors
-vim /etc/pacman.d/mirrorlist
+mirrorlist_generator='https://www.archlinux.org/mirrorlist/?country=SG&country=TH&country=VN&protocol=http&protocol=https&ip_version=4&use_mirror_status=on'
 
 # Update the system clock
 timedatectl set-ntp true
 
+# Update and sorting mirrors
+pacman -Syy
+pacman -S pacman-contrib
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
+curl "$mirrorlist_generator" > /etc/mirrorlist
+sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
+rankmirrors -n 5 /etc/pacman.d/mirrorlist > /etc/pacman.d/mirrorlist
+vim /etc/pacman.d/mirrorlist
+
 # Partition the disk
 if [ "$erase_disk" -eq 1 ]; then
-    sgdisk -Z /dev/"$disk"
-    fdisk /dev/"$disk" << \
+    sgdisk -Z "$disk"
+    fdisk "$disk" << \
 EOF
 g
 n
@@ -38,19 +45,19 @@ n
 w
 EOF
 else
-    cfdisk /dev/"$disk"
+    cfdisk "$disk"
 fi
 lsblk
 sleep 5
 
 # Format the partitions
-mkfs.fat -F32 /dev/"$disk$boot_partition"
-mkfs.ext4 /dev/"$disk$root_partition"
+mkfs.fat -F32 "$boot_partition"
+mkfs.ext4 "$root_partition"
 
 # Mount the file systems
-mount /dev/"$disk$root_partition" /mnt
+mount "$root_partition" /mnt
 mkdir /mnt/boot
-mount /dev/"$disk$boot_partition" /mnt/boot
+mount "$boot_partition" /mnt/boot
 
 # Install base packages
 pacstrap /mnt base base-devel
@@ -85,10 +92,10 @@ if [ "$boot_loader" = "systemd-boot" ]; then
     echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
     [ -n "$ucode" ] && echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
     echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-    echo "options root=/dev/$disk$root_partition rw quiet" >> /boot/loader/entries/arch.conf
+    echo "options root=$root_partition rw quiet" >> /boot/loader/entries/arch.conf
 elif [ "$boot_loader" = "efistub" ]; then
     [ -n "$ucode" ] && ucode_init="initrd=/$ucode.img"
-    efibootmgr -d /dev/$disk -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u "$ucode_init initrd=/initramfs-linux.img root=/dev/$disk$root_partition rw quiet" -v
+    efibootmgr -d $disk -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u "$ucode_init initrd=/initramfs-linux.img root=$root_partition rw quiet" -v
 fi
 
 sed -i 's/^HOOKS=(base udev/HOOKS=(base systemd/g' /etc/mkinitcpio.conf
