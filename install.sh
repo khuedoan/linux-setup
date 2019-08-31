@@ -3,12 +3,11 @@
 #+---------+
 #| Options |
 #+---------+
-if [[ -f config.sh ]]; then
-    source config.sh
-else
+if [[ ! -f config.sh ]]; then
     echo "Missing config.sh, downloading..."
     curl -O https://khuedoan.me/archguide/config.sh
 fi
+source config.sh
 
 #+------------------+
 #| Pre-installation |
@@ -69,7 +68,7 @@ pacstrap /mnt base base-devel
 #| Configure the system |
 #+----------------------+
 genfstab -U /mnt >> /mnt/etc/fstab
-if [[ ! -f config.sh ]]; then
+if [[ ! -f chroot.sh ]]; then
     echo "Missing chroot.sh, downloading..."
     curl -O https://khuedoan.me/archguide/chroot.sh
 fi
