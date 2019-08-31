@@ -25,7 +25,7 @@ echo 'Precision' > /etc/hostname
 systemctl enable NetworkManager
 
 # Boot
-if [ "$boot_loader" = "systemd-boot" ]; then
+if [ "$bootloader" = "systemd-boot" ]; then
      bootctl --path=/boot install
      echo 'default arch' > /boot/loader/loader.conf
      echo 'timeout 0' >> /boot/loader/loader.conf
@@ -35,7 +35,7 @@ if [ "$boot_loader" = "systemd-boot" ]; then
      [ -n "$ucode" ] && echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
      echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
      echo "options root=$root_partition rw quiet" >> /boot/loader/entries/arch.conf
-elif [ "$boot_loader" = "efistub" ]; then
+elif [ "$bootloader" = "efistub" ]; then
      [ -n "$ucode" ] && ucode_init="initrd=/$ucode.img"
      efibootmgr -d $disk -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u "$ucode_init initrd=/initramfs-linux.img root=$root_partition rw quiet" -v
 fi
