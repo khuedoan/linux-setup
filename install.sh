@@ -63,7 +63,7 @@ mount "$boot_partition" /mnt/boot
 pacman -Syy
 pacman --noconfirm --needed -S pacman-contrib
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl "$mirrorlist_generator" > /etc/mirrorlist
+curl "$mirrorlist_generator" > /etc/pacman.d/mirrorlist
 sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
 rankmirrors -n 5 /etc/pacman.d/mirrorlist > /etc/pacman.d/mirrorlist
 vim /etc/pacman.d/mirrorlist
