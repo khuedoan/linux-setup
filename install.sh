@@ -3,20 +3,12 @@
 #+---------+
 #| Options |
 #+---------+
-erase_disk=1
-disk='/dev/nvme0n1'
-boot_partition="${disk}p1"
-root_partition="${disk}p2"
-ucode='intel-ucode' # leave empty to disable ucode
-swap_size='32G' # leave empty to disable swap
-hostname='Precision' 
-rootpasswd=''
-username='khuedoan'
-fullname='Khue Doan'
-userpasswd=''
-bootloader='systemd-boot' # systemd-boot or efistub
-timezone='Asia/Ho_Chi_Minh'
-mirrorlist_generator='https://www.archlinux.org/mirrorlist/?country=SG&country=TH&country=VN&protocol=http&protocol=https&ip_version=4&use_mirror_status=on'
+if [[ -f config.sh ]]; then
+    source config.sh
+else
+    echo "Missing config.sh, downloading..."
+    curl -O https://khuedoan.me/archguide/config.sh
+fi
 
 #+------------------+
 #| Pre-installation |
@@ -77,7 +69,10 @@ pacstrap /mnt base base-devel
 #| Configure the system |
 #+----------------------+
 genfstab -U /mnt >> /mnt/etc/fstab
-curl https://khuedoan.me/archguide/chroot.sh > chroot.sh
-chmod +x chroot.sh
-cp chroot.sh /mnt
+if [[ ! -f config.sh ]]; then
+    echo "Missing chroot.sh, downloading..."
+    curl -O https://khuedoan.me/archguide/chroot.sh
+fi
+cat config.sh chroot.sh > /mnt/chroot.sh
+chmod +x /mnt/chroot.sh
 arch-chroot /mnt /chroot.sh

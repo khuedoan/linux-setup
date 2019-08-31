@@ -1,13 +1,13 @@
-#!/bin/sh
+pacman --noconfirm -S $ucode networkmanager git gvim zsh
 
-pacman --noconfirm -S intel-ucode networkmanager git gvim zsh
-
-fallocate -l 32G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-echo "# swapfile" >> /etc/fstab
-echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+if [ -n "$swap_size" ]; then
+     fallocate -l $swap_size /swapfile
+     chmod 600 /swapfile
+     mkswap /swapfile
+     swapon /swapfile
+     echo "# swapfile" >> /etc/fstab
+     echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+fi
 
 ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 hwclock --systohc
@@ -15,17 +15,20 @@ sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 echo 'Precision' > /etc/hostname
 
-bootctl --path=/boot install
-echo 'default arch' > /boot/loader/loader.conf
-echo 'timeout 0' >> /boot/loader/loader.conf
-echo 'editor  0' >> /boot/loader/loader.conf
-echo 'title   Arch Linux' > /boot/loader/entries/arch.conf
-echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
-echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
-echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-echo 'options root=/dev/nvme0n1p2 rw quiet' >> /boot/loader/entries/arch.conf
-
-#efibootmgr -d /dev/nvme0n1 -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u 'initrd=/intel-ucode.img initrd=/initramfs-linux.img root=/dev/nvme0n1p2 rw quiet' -v
+if [ "$boot_loader" = "systemd-boot" ]; then
+     bootctl --path=/boot install
+     echo 'default arch' > /boot/loader/loader.conf
+     echo 'timeout 0' >> /boot/loader/loader.conf
+     echo 'editor  0' >> /boot/loader/loader.conf
+     echo 'title   Arch Linux' > /boot/loader/entries/arch.conf
+     echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
+     [ -n "$ucode" ] && echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
+     echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
+     echo "options root=$root_partition rw quiet" >> /boot/loader/entries/arch.conf
+ elif [ "$boot_loader" = "efistub" ]; then
+     [ -n "$ucode" ] && ucode_init="initrd=/$ucode.img"
+     efibootmgr -d $disk -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u "$ucode_init initrd=/initramfs-linux.img root=$root_partition rw quiet" -v
+ fi
 
 sed -i 's/^HOOKS=(base udev/HOOKS=(base systemd/g' /etc/mkinitcpio.conf
 mkinitcpio -p linux
@@ -34,10 +37,11 @@ echo "StandardOutput=null\nStandardError=journal+console" | SYSTEMD_EDITOR="tee 
 systemctl enable NetworkManager
 echo "Changing root password"
 passwd
-useradd -m -G wheel -s /bin/zsh -c "Khue Doan" khuedoan
+useradd -m -G wheel -s /bin/zsh -c "$fullname" "$username"
 echo "Changing user password"
-passwd khuedoan
+passwd "$username"
 visudo
+sed -i 's/^#Color/Color/g' /etc/pacman.conf
 vim /etc/pacman.conf
 pacman -Syy
 
