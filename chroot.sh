@@ -51,12 +51,12 @@ sed -i '/#\[multilib\],/#Include/ s/^#//g' /etc/pacman.conf
 pacman -Syy
 
 # Users
-echo "Changing root password"
+echo "ROOT PASSWORD"
 passwd
 useradd -m -G wheel -s /bin/zsh -c "$fullname" "$username"
-echo "Changing user password"
+echo "USER PASSWORD ($username)"
 passwd "$username"
-visudo
+sed -i 's/#\s%wheel\sALL=(ALL)\sALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Cleanup
 rm /chroot.sh
