@@ -3,7 +3,7 @@
 #+---------+
 #| Options |
 #+---------+
-erase_disk=1
+erase_disk=0
 disk='/dev/nvme0n1'
 boot_partition="${disk}p1"
 root_partition="${disk}p2"
