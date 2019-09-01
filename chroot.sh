@@ -46,8 +46,7 @@ mkinitcpio -p linux
 echo "StandardOutput=null\nStandardError=journal+console" | SYSTEMD_EDITOR="tee -a" systemctl edit --full systemd-fsck-root.service
 
 # Pacman
-sed -i 's/^#Color/Color/g' /etc/pacman.conf
-sed -i '/#\[multilib\],/#Include/ s/^#//g' /etc/pacman.conf
+sed -i 's/^#Color/Color/g;/#\[multilib\],/#Include/ s/^#//g' /etc/pacman.conf
 pacman -Syy
 
 # Users
