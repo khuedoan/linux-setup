@@ -19,7 +19,7 @@ ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
-echo 'Precision' > /etc/hostname
+echo "$hostname" > /etc/hostname
 
 # Network
 systemctl enable NetworkManager
