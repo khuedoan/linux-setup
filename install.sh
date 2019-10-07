@@ -65,7 +65,7 @@ cat /etc/pacman.d/mirrorlist
 rm /etc/pacman.d/mirrorlist.backup
 
 # Install base packages
-pacstrap /mnt base base-devel
+pacstrap /mnt base linux base-devel
 
 #+----------------------+
 #| Configure the system |
