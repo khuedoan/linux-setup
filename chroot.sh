@@ -57,6 +57,8 @@ sed -i 's/#\s%wheel\sALL=(ALL)\sALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 # Download dotfiles installer
 curl https://raw.githubusercontent.com/khuedoan98/dotfiles/$dotfiles_branch/.install.sh > /home/$username/.install.sh
+chown $username:$username /home/$username/.install.sh
+chmod +x /home/$username/.install.sh
 
 # Cleanup
 rm /chroot.sh
