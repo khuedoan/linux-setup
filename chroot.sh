@@ -50,6 +50,8 @@ sed -i 's/^#Color/Color/g;/#\[multilib\]/,/#Include/ s/^#//g' /etc/pacman.conf
 pacman -Syy
 
 # Users
+echo "ROOT PASSWORD"
+passwd
 useradd -m -G wheel -s /bin/zsh -c "$fullname" "$username"
 echo "USER PASSWORD ($username)"
 passwd "$username"
