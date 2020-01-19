@@ -62,7 +62,6 @@ if [ -n "$dotfiles_branch" ]; then
     curl https://raw.githubusercontent.com/khuedoan98/dotfiles/$dotfiles_branch/install.sh > /home/$username/install.sh
     chown $username:$username /home/$username/install.sh
     chmod +x /home/$username/install.sh
-    /bin/su -c /home/$username/install.sh - $username
 fi
 
 # Cleanup
