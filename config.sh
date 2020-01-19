@@ -15,4 +15,4 @@ username='khuedoan'
 fullname='Khue Doan'
 timezone='Asia/Ho_Chi_Minh'
 bootloader='systemd-boot' # systemd-boot or efistub
-dotfiles_branch='master'
+dotfiles_branch='master' # leave empty to disable dotfiles installation
