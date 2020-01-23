@@ -65,7 +65,7 @@ if [ -n "$dotfiles_branch" ]; then
     # Allow user in group wheel to use sudo without password
     sed -i '/%wheel\sALL=(ALL)\sNOPASSWD:\sALL/s/^#\s//g' /etc/sudoers
     # Run the script as normal user
-    /bin/su -c "/home/$usename/install.sh --all" - $username
+    /bin/su -c "/home/$username/install.sh --all" - $username
     # Disallow user in group wheel to use sudo without password
     sed -i '/%wheel\sALL=(ALL)\sNOPASSWD:\sALL/s/^/# /g' /etc/sudoers
 fi
