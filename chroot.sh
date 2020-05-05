@@ -56,22 +56,15 @@ useradd -m -G wheel -s /bin/zsh -c "$fullname" "$username"
 echo "USER PASSWORD ($username)"
 passwd "$username"
 
+# Allow users in group wheel to use sudo
+sed -i '/%wheel\sALL=(ALL)\sALL/s/^#\s//g' /etc/sudoers
+
 # Download dotfiles installer
 if [ -n "$dotfiles_branch" ]; then
     curl https://raw.githubusercontent.com/khuedoan98/dotfiles/$dotfiles_branch/install.sh > /home/$username/install.sh
     chown $username:$username /home/$username/install.sh
     chmod +x /home/$username/install.sh
-    # The install script use sudo to install packages, edit files...
-    # Allow user in group wheel to use sudo without password
-    sed -i '/%wheel\sALL=(ALL)\sNOPASSWD:\sALL/s/^#\s//g' /etc/sudoers
-    # Run the script as normal user
-    /bin/su -c "/home/$username/install.sh --all" - $username
-    # Disallow user in group wheel to use sudo without password
-    sed -i '/%wheel\sALL=(ALL)\sNOPASSWD:\sALL/s/^/# /g' /etc/sudoers
 fi
-
-# Allow users in group wheel to use sudo
-sed -i '/%wheel\sALL=(ALL)\sALL/s/^#\s//g' /etc/sudoers
 
 # Cleanup
 rm /chroot.sh
