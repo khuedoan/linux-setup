@@ -1,0 +1,1 @@
+# arch-install-script
