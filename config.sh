@@ -15,4 +15,5 @@ username='khuedoan'
 fullname='Khue Doan'
 timezone='Asia/Ho_Chi_Minh'
 bootloader='systemd-boot' # systemd-boot or efistub
+system_config=1 # Install system config files in ./root
 dotfiles_branch='master' # leave empty to disable dotfiles installation

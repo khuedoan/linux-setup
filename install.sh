@@ -78,3 +78,9 @@ fi
 cat config.sh chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt /chroot.sh
+
+# Install system config files in ./root
+if [ "$system_config" -eq 1 ]; then
+    sudo cp -rv root/* /mnt/
+    sed -i "s/khuedoan/$username/g" /mnt/etc/systemd/system/getty@tty1.service.d/override.conf
+fi
