@@ -66,6 +66,11 @@ if [ -n "$dotfiles_branch" ]; then
     chmod +x /home/$username/install.sh
 fi
 
+# Install Intel VA-API driver
+if [ "$intel_vaapi_driver" -eq 1 ]; then
+    pacman --noconfirm --needed -S libva-intel-driver
+fi
+
 # Cleanup
 rm /chroot.sh
 exit
