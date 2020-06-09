@@ -71,6 +71,9 @@ if [ "$intel_vaapi_driver" -eq 1 ]; then
     pacman --noconfirm --needed -S libva-intel-driver
 fi
 
+# Install NVIDIA driver
+pacman -S --noconfirm --needed nvidia lib32-nvidia-utils
+
 # Cleanup
 rm /chroot.sh
 exit
