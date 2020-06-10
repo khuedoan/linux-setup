@@ -21,3 +21,7 @@ sudo pacman --noconfirm --needed -S python-pipenv
 sudo pacman --noconfirm --needed -S wkhtmltopdf
 curl -s https://raw.githubusercontent.com/khuedoan98/mdtopdf/master/mdtopdf > $HOME/.local/bin/mdtopdf
 chmod +x $HOME/.local/bin/mdtopdf
+
+# Cloud
+sudo pacman --noconfirm --needed -S kubectl terraform
+trizen --noconfirm --needed -S google-cloud-sdk
