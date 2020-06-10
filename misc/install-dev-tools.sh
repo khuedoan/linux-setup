@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # virt-manager
-sudo pacman --noconfirm --needed -S virt-manager qemu ebtables dnsmasq bridge-utils openbsd-netcat
+sudo pacman --noconfirm --needed -S virt-manager qemu ebtables dnsmasq bridge-utils openbsd-netcat edk2-ovmf
 sudo systemctl enable --now libvirtd.service
 sudo usermod -aG libvirt $USER
 # Vagrant
