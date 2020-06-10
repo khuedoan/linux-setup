@@ -4,14 +4,19 @@
 sudo pacman --noconfirm --needed -S virt-manager qemu ebtables dnsmasq bridge-utils openbsd-netcat edk2-ovmf
 sudo systemctl enable --now libvirtd.service
 sudo usermod -aG libvirt $USER
+# VirtIO drivers: https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/
+
 # Vagrant
 sudo pacman --noconfirm --needed -S vagrant
 vagrant plugin install vagrant-libvirt
+
 # Docker
 sudo pacman --noconfirm --needed -S docker-compose
 sudo usermod -aG docker $USER
+
 # Python
 sudo pacman --noconfirm --needed -S python-pipenv
+
 # Markdown to PDF
 sudo pacman --noconfirm --needed -S wkhtmltopdf
 curl -s https://raw.githubusercontent.com/khuedoan98/mdtopdf/master/mdtopdf > $HOME/.local/bin/mdtopdf
