@@ -6,7 +6,7 @@ pacman --noconfirm -S $ucode networkmanager git neovim zsh
 
 # Swap
 if [ -n "$swap_size" ]; then
-     fallocate -l $swap_size /swapfile
+     dd if=/dev/zero of=/swapfile bs=1GiB count=$swap_size status=progress
      chmod 600 /swapfile
      mkswap /swapfile
      swapon /swapfile
