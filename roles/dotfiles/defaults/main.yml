@@ -1,2 +1,5 @@
 ---
-# defaults file for dotfiles
+
+essential_packages:
+  - bspwm
+  - sxhkd
