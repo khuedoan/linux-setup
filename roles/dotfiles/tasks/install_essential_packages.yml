@@ -1,8 +1,14 @@
 ---
 
 - name: Install essential packages
+  with_items: "{{ essential_packages.official }}"
   become: yes
   package:
     name: "{{ item }}"
-    state: latest
-  with_items: "{{ essential_packages }}"
+    state: present
+
+- name: Install essential packages from AUR
+  with_items: "{{ essential_packages.aur }}"
+  aur:
+    name="{{ item }}"
+    state=present

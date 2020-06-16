@@ -1,34 +1,46 @@
 ---
 
 dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
+
 wallpaper_url: "https://i.redd.it/v1lgvqk9lxn31.jpg"
 wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"
+
 essential_packages:
-  - alsa-utils
-  - arandr
-  - autorandr
-  - bc
-  - bspwm
-  - dunst
-  - feh
-  - fzf
-  - git
-  - libnotify
-  - light
-  - maim
-  - npm
-  - playerctl
-  - sxhkd
-  - translate-shell
-  - ttf-dejavu
-  - wmctrl
-  - xautolock
-  - xcape
-  - xclip
-  - xdotool
-  - xorg-server
-  - xorg-setxkbmap
-  - xorg-xinit
-  - xorg-xrandr
-  - xorg-xsetroot
-  - xss-lock
+  official:
+    - alsa-utils
+    - arandr
+    - autorandr
+    - bc
+    - bspwm
+    - dunst
+    - feh
+    - fzf
+    - git
+    - libnotify
+    - light
+    - maim
+    - npm
+    - playerctl
+    - sxhkd
+    - translate-shell
+    - ttf-dejavu
+    - wmctrl
+    - xautolock
+    - xcape
+    - xclip
+    - xdotool
+    - xorg-server
+    - xorg-setxkbmap
+    - xorg-xinit
+    - xorg-xrandr
+    - xorg-xsetroot
+    - xss-lock
+  aur:
+    - compton-tryone-git
+    - nerd-fonts-source-code-pro
+    - polybar
+    - trizen
+
+  # - chromium-widevine
+  # - ttf-ms-fonts
+  # - ibus-bamboo
