@@ -6,14 +6,14 @@
     chdir: "{{ ansible_env.HOME }}"
 
 - name: Add remote repository
-  command: "git remote add origin http://github.com/khuedoan98/dotfiles.git"
+  command: "git remote add origin {{ dotfiles_repo }}"
   args:
     chdir: "{{ ansible_env.HOME }}"
   ignore_errors: yes
 
 - name: Clone dotfiles repo
   git:
-    repo: "https://github.com/khuedoan98/dotfiles.git"
+    repo: "{{ dotfiles_repo }}"
     dest: "{{ ansible_env.HOME }}"
     separate_git_dir: "{{ ansible_env.HOME }}/.dotfiles"
     update: yes

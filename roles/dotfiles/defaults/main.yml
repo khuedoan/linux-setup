@@ -1,5 +1,6 @@
 ---
 
+dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
 essential_packages:
   - bspwm
   - sxhkd
