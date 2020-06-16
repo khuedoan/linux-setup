@@ -32,3 +32,9 @@
   file:
     path: "/tmp/{{ item }}"
     state: absent
+
+- name: Add user to video group for brightness control with the light package
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    group: "video"
