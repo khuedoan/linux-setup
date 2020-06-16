@@ -2,5 +2,31 @@
 
 dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
 essential_packages:
+  - alsa-utils
+  - arandr
+  - autorandr
+  - bc
   - bspwm
+  - dunst
+  - feh
+  - fzf
+  - git
+  - libnotify
+  - light
+  - maim
+  - npm
+  - playerctl
   - sxhkd
+  - translate-shell
+  - ttf-dejavu
+  - wmctrl
+  - xautolock
+  - xcape
+  - xclip
+  - xdotool
+  - xorg-server
+  - xorg-setxkbmap
+  - xorg-xinit
+  - xorg-xrandr
+  - xorg-xsetroot
+  - xss-lock
