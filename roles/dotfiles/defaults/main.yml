@@ -41,6 +41,35 @@ essential_packages:
     - polybar
     - trizen
 
-  # - chromium-widevine
-  # - ttf-ms-fonts
-  # - ibus-bamboo
+extra_packages:
+  official:
+    - arc-gtk-theme
+    - aria2
+    - glances
+    - gvfs
+    - htop
+    - man
+    - mpv
+    - noto-fonts
+    - noto-fonts-cjk
+    - noto-fonts-emoji
+    - noto-fonts-extra
+    - ntfs-3g
+    - papirus-icon-theme
+    - pcmanfm-gtk3
+    - qutebrowser
+    - ranger
+    - tmux
+    - tree
+    - unrar
+    - unzip
+    - w3m
+    - xarchiver
+    - youtube-dl
+    - zathura
+    - zathura-pdf-mupdf
+    - zip
+  aur:
+    - chromium-widevine
+    - ttf-ms-fonts
+    - ibus-bamboo
