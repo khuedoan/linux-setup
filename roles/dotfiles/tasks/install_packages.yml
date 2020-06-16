@@ -12,3 +12,23 @@
   aur:
     name="{{ item }}"
     state=present
+
+- name: Download custom packages source
+  with_items: "{{ essential_packages.custom }}"
+  git:
+    repo: "https://github.com/khuedoan98/{{ item }}.git"
+    dest: "/tmp/{{ item }}"
+
+- name: Install custom packages
+  with_items: "{{ essential_packages.custom }}"
+  become: yes
+  make:
+    chdir: "/tmp/{{ item }}"
+    target: install
+
+- name: Clean up custom package sources
+  with_items: "{{ essential_packages.custom }}"
+  become: yes
+  file:
+    path: "/tmp/{{ item }}"
+    state: absent
