@@ -9,7 +9,8 @@
   command: "git remote add origin {{ dotfiles_repo }}"
   args:
     chdir: "{{ ansible_env.HOME }}"
-  ignore_errors: yes
+  register: add_remote
+  failed_when: add_remote.rc != 0 and add_remote.rc != 128
 
 - name: Clone dotfiles repo
   git:
