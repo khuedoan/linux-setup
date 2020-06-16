@@ -1,0 +1,7 @@
+---
+
+- name: Install essential packages
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ essential_packages }}"

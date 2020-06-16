@@ -1,3 +1,7 @@
 ---
 
-- include_tasks: install_dotfiles.yml
+- name: Include install dotfiles task
+  include_tasks: install_dotfiles.yml
+
+- name: Include install essential packages task
+  include_tasks: install_essential_packages.yml
