@@ -61,6 +61,7 @@ extra_packages:
     - ntfs-3g
     - papirus-icon-theme
     - pcmanfm-gtk3
+    - pdfjs
     - qutebrowser
     - ranger
     - tmux
