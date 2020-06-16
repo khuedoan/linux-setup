@@ -1,26 +1,3 @@
 ---
 
-- name: Init empty dotfiles repo
-  command: "git init --separate-git-dir={{ ansible_env.HOME }}/.dotfiles"
-  args:
-    chdir: "{{ ansible_env.HOME }}"
-
-- name: Add remote repository
-  command: "git remote add origin http://github.com/khuedoan98/dotfiles.git"
-  args:
-    chdir: "{{ ansible_env.HOME }}"
-  ignore_errors: yes
-
-- name: Clone dotfiles repo
-  git:
-    repo: "https://github.com/khuedoan98/dotfiles.git"
-    dest: "{{ ansible_env.HOME }}"
-    separate_git_dir: "{{ ansible_env.HOME }}/.dotfiles"
-    update: yes
-
-- name: Disable show untracked files
-  git_config:
-    name: "status.showUntrackedFiles"
-    scope: local
-    repo: "{{ ansible_env.HOME }}/.dotfiles"
-    value: "no"
+- include_tasks: install_dotfiles.yml
