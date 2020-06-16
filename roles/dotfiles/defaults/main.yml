@@ -1,6 +1,8 @@
 ---
 
 dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
+wallpaper_url: "https://i.redd.it/v1lgvqk9lxn31.jpg"
+wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"
 essential_packages:
   - alsa-utils
   - arandr
