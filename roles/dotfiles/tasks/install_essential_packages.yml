@@ -1,6 +1,7 @@
 ---
 
 - name: Install essential packages
+  become: yes
   package:
     name: "{{ item }}"
     state: latest
