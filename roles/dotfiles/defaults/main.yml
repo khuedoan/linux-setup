@@ -40,6 +40,10 @@ essential_packages:
     - nerd-fonts-source-code-pro
     - polybar
     - trizen
+  custom:
+    - dmenu
+    - slock
+    - st
 
 extra_packages:
   official:
