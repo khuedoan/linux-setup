@@ -14,6 +14,7 @@ essential_packages:
     - bspwm
     - dunst
     - feh
+    - firefox
     - fzf
     - git
     - libnotify
@@ -62,7 +63,6 @@ extra_packages:
     - papirus-icon-theme
     - pcmanfm-gtk3
     - pdfjs
-    - qutebrowser
     - ranger
     - tmux
     - tree
@@ -75,6 +75,5 @@ extra_packages:
     - zathura-pdf-mupdf
     - zip
   aur:
-    - chromium-widevine
     - ttf-ms-fonts
     - ibus-bamboo
