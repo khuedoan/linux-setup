@@ -19,3 +19,5 @@
 
 - include_tasks: install_nvidia_optimus_driver.yml
   when: intel is succeeded and nvidia is succeeded
+
+- include_tasks: install_battery_saver.yml
