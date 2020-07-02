@@ -1,13 +1,13 @@
 ---
 
-- name: Install essential packages
+- name: Install packages
   with_items: "{{ essential_packages.official + extra_packages.official }}"
   become: yes
   package:
     name: "{{ item }}"
     state: present
 
-- name: Install essential packages from AUR
+- name: Install packages from AUR
   with_items: "{{ essential_packages.aur + extra_packages.aur }}"
   aur:
     name="{{ item }}"
