@@ -6,9 +6,16 @@
     name: "{{ essential_packages.official + extra_packages.official }}"
     state: present
 
+- name: Install AUR helper ({{ aur_helper }})
+  aur:
+    name: "{{ aur_helper }}"
+    use: makepkg
+    state: present
+
 - name: Install packages from AUR
   aur:
     name: "{{ essential_packages.aur + extra_packages.aur }}"
+    use: trizen
     state: present
 
 - name: Download custom packages source
