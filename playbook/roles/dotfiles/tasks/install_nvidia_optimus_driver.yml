@@ -16,3 +16,4 @@
   copy:
     src: "sudoers.d/prime-switch"
     dest: "/etc/sudoers.d/prime-switch"
+    mode: "0440"
