@@ -1,0 +1,6 @@
+---
+
+- name: Install VA-API implementation for Intel HD Graphics
+  become: yes
+  package:
+    name: libva-intel-driver

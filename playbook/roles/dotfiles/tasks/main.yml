@@ -14,5 +14,8 @@
   register: intel
   ignore_errors: yes
 
+- include_tasks: install_intel_vaapi_driver.yml
+  when: intel is succeeded
+
 - include_tasks: install_nvidia_optimus_driver.yml
   when: intel is succeeded and nvidia is succeeded
