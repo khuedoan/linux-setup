@@ -1,5 +1,5 @@
 ---
 
-- hosts: localhost
+- hosts: all
   roles:
     - { role: dotfiles }
