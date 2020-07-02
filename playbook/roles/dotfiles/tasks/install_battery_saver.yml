@@ -1,0 +1,21 @@
+---
+
+- name: Install tlp
+  become: yes
+  package:
+    name: tlp
+
+- name: Install undervolting tool
+  aur:
+    name: intel-undervolt
+    use: "{{ aur_helper }}"
+    state: present
+
+- name: Enable battery saving services
+  become: yes
+  service:
+    name: "{{ item }}"
+    enabled: yes
+  with_items:
+    - tlp.service
+    - intel-undervolt.service
