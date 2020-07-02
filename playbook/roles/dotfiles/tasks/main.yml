@@ -4,6 +4,7 @@
 - include_tasks: download_wallpaper.yml
 - include_tasks: install_packages.yml
 - include_tasks: install_unikey.yml
+- include_tasks: enable_autologin.yml
 
 - name: NVIDIA GPU
   shell: lspci | grep 'NVIDIA'
