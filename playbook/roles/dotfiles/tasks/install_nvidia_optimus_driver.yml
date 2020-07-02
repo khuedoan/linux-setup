@@ -1,0 +1,18 @@
+---
+
+- name: Install NVIDIA driver
+  become: yes
+  package:
+    name: nvidia lib32-nvidia-utils
+
+- name: Install optimus-manager
+  aur:
+    name: optimus-manager
+    use: "{{ aur_helper }}"
+    state: present
+
+- name: Allow members of group wheel to switch graphics card without a password
+  become: yes
+  copy:
+    src: "sudoers.d/prime-switch"
+    dest: "/etc/sudoers.d/prime-switch"
