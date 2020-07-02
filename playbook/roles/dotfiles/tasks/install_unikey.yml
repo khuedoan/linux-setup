@@ -1,0 +1,10 @@
+---
+
+- name: Install Unikey
+  aur:
+    name: "ibus-bamboo"
+    use: "{{ aur_helper }}"
+    state: present
+
+- name: Import iBus config
+  shell: "dconf load /desktop/ibus/ < {{ ansible_env.HOME }}/.config/ibus/ibus.dconf"
