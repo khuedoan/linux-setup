@@ -1,0 +1,7 @@
+---
+
+vm:
+  hosts:
+    localhost:
+      ansible_port: 2522
+      ansible_password: 1
