@@ -15,7 +15,7 @@
 - name: Install packages from AUR
   aur:
     name: "{{ essential_packages.aur + extra_packages.aur }}"
-    use: trizen
+    use: "{{ aur_helper }}"
     state: present
 
 - name: Download custom packages source
