@@ -5,6 +5,8 @@ dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
 wallpaper_url: "https://i.redd.it/v1lgvqk9lxn31.jpg"
 wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"
 
+aur_helper: trizen
+
 essential_packages:
   official:
     - alsa-utils
@@ -40,7 +42,6 @@ essential_packages:
     - compton-tryone-git
     - nerd-fonts-source-code-pro
     - polybar
-    - trizen
   custom:
     - dmenu
     - slock
