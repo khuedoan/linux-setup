@@ -3,3 +3,16 @@
 - include_tasks: install_dotfiles.yml
 - include_tasks: download_wallpaper.yml
 - include_tasks: install_packages.yml
+
+- name: NVIDIA GPU
+  shell: lspci | grep 'NVIDIA'
+  register: nvidia
+  ignore_errors: yes
+
+- name: Intel GPU
+  shell: lspci | grep 'HD Graphics'
+  register: intel
+  ignore_errors: yes
+
+- include_tasks: install_nvidia_optimus_driver.yml
+  when: intel is succeeded and nvidia is succeeded
