@@ -1,0 +1,2 @@
+## Allow members of group wheel to switch graphics card without a password
+%wheel ALL=(ALL) NOPASSWD: /usr/bin/prime-switch
