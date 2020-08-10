@@ -61,7 +61,7 @@ sed -i '/%wheel\sALL=(ALL)\sALL/s/^#\s//g' /etc/sudoers
 
 # Download dotfiles installer
 if [ -n "$dotfiles_branch" ]; then
-    curl https://raw.githubusercontent.com/khuedoan98/dotfiles/$dotfiles_branch/install.sh > /home/$username/install.sh
+    curl https://raw.githubusercontent.com/khuedoan/dotfiles/$dotfiles_branch/install.sh > /home/$username/install.sh
     chown $username:$username /home/$username/install.sh
     chmod +x /home/$username/install.sh
 fi

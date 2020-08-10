@@ -5,4 +5,4 @@ ssh-keygen -t rsa -b 4096 -C "${email}"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
-dotfiles remote set-url origin git@github.com:khuedoan98/dotfiles.git
+dotfiles remote set-url origin git@github.com:khuedoan/dotfiles.git

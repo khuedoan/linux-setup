@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install_dotfiles() {
-    REPO="https://github.com/khuedoan98/dotfiles.git"
+    REPO="https://github.com/khuedoan/dotfiles.git"
     GITDIR=$HOME/.dotfiles/
 
     git clone --bare $REPO $GITDIR
@@ -58,21 +58,21 @@ install_core_packages() {
     rm -rf compton
 
     # st
-    git clone https://github.com/khuedoan98/st
+    git clone https://github.com/khuedoan/st
     cd st
     sudo make clean install && sudo make clean
     cd ..
     rm -rf st
 
     # dmenu
-    git clone https://github.com/khuedoan98/dmenu
+    git clone https://github.com/khuedoan/dmenu
     cd dmenu
     sudo make clean install && sudo make clean
     cd ..
     rm -rf dmenu
 
     # slock
-    git clone https://github.com/khuedoan98/slock
+    git clone https://github.com/khuedoan/slock
     cd slock
     sudo make clean install && sudo make clean
     cd ..
@@ -111,7 +111,7 @@ else
         cli_config_files=".aliases .config/nvim/init.vim .tmux.conf .zshrc"
 
         for file in $cli_config_files; do
-            curl https://raw.githubusercontent.com/khuedoan98/dotfiles/master/$file > $HOME/$file
+            curl https://raw.githubusercontent.com/khuedoan/dotfiles/master/$file > $HOME/$file
         done
     elif [ "$1" = "--all" ]; then
         install_dotfiles

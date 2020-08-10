@@ -21,7 +21,7 @@
 - name: Download custom packages source
   with_items: "{{ essential_packages.custom }}"
   git:
-    repo: "https://github.com/khuedoan98/{{ item }}.git"
+    repo: "https://github.com/khuedoan/{{ item }}.git"
     dest: "/tmp/{{ item }}"
 
 - name: Install custom packages
