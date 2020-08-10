@@ -1,6 +1,6 @@
 ---
 
-dotfiles_repo: "https://github.com/khuedoan98/dotfiles.git"
+dotfiles_repo: "https://github.com/khuedoan/dotfiles.git"
 
 wallpaper_url: "https://i.redd.it/v1lgvqk9lxn31.jpg"
 wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"

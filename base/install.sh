@@ -5,7 +5,7 @@
 #+---------+
 if [[ ! -f config.sh ]]; then
     echo "Missing config.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan98/archguide/master/config.sh
+    curl -O https://raw.githubusercontent.com/khuedoan/archguide/master/config.sh
 fi
 vim ./config.sh
 source ./config.sh
@@ -73,7 +73,7 @@ pacstrap /mnt base linux linux-firmware base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 if [[ ! -f chroot.sh ]]; then
     echo "Missing chroot.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan98/archguide/master/chroot.sh
+    curl -O https://raw.githubusercontent.com/khuedoan/archguide/master/chroot.sh
 fi
 cat config.sh chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
