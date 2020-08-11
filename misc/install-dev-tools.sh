@@ -18,7 +18,7 @@ sudo usermod -aG docker $USER
 sudo pacman --noconfirm --needed -S python-pipenv
 
 # Rust
-sudo pacman --noconfirm --needed -S rust
+sudo pacman --noconfirm --needed -S rust rust-analyzer
 
 # Markdown to PDF
 sudo pacman --noconfirm --needed -S wkhtmltopdf
