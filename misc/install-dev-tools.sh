@@ -17,6 +17,9 @@ sudo usermod -aG docker $USER
 # Python
 sudo pacman --noconfirm --needed -S python-pipenv
 
+# Rust
+sudo pacman --noconfirm --needed -S rust
+
 # Markdown to PDF
 sudo pacman --noconfirm --needed -S wkhtmltopdf
 curl -s https://raw.githubusercontent.com/khuedoan/mdtopdf/master/mdtopdf > $HOME/.local/bin/mdtopdf
