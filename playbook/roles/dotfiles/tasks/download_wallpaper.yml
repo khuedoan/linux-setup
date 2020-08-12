@@ -6,4 +6,4 @@
 - name: Download wallpaper
   get_url:
     url: "{{ wallpaper_url }}"
-    dest: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"
+    dest: "{{ ansible_env.HOME }}/Pictures/Wallpapers/OneDark.jpg"
