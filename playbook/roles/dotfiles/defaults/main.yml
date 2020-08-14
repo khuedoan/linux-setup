@@ -2,8 +2,8 @@
 
 dotfiles_repo: "https://github.com/khuedoan/dotfiles.git"
 
-wallpaper_url: "https://free4kwallpapers.com/uploads/wallpaper/atom-one-dark-triangles-wallpaper-1920x1080-wallpaper.jpg"
-wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/Waterfall.jpg"
+wallpaper_url: "https://i.imgur.com/C3tCYsp.jpg"
+wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/OneDarkBlur.jpg"
 
 aur_helper: trizen
 
