@@ -29,7 +29,7 @@ install_dotfiles() {
 
     wallpapers_dir=$HOME/Pictures/Wallpapers
     mkdir -p $wallpapers_dir
-    curl https://free4kwallpapers.com/uploads/wallpaper/atom-one-dark-triangles-wallpaper-1920x1080-wallpaper.jpg > $wallpapers_dir/OneDark.jpg
+    curl https://i.imgur.com/C3tCYsp.jpg > $wallpapers_dir/OneDarkBlur.jpg
 }
 
 install_aur_helper() {
