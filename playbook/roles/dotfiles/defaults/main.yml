@@ -51,6 +51,7 @@ extra_packages:
   official:
     - arc-gtk-theme
     - aria2
+    - exfatprogs
     - glances
     - gvfs
     - htop
