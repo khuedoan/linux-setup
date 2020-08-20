@@ -1,8 +1,0 @@
----
-
-vm:
-  hosts:
-    localhost:
-      ansible_port: 2522
-      ansible_user: khuedoan
-      ansible_password: 1
