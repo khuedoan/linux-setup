@@ -13,5 +13,5 @@ galaxy_info:
   galaxy_tags:
     - dotfiles
 
-dependencies:
-  - kewlfft.aur
+#dependencies:
+#  - kewlfft.aur
