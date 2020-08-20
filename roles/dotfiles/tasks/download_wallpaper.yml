@@ -1,7 +1,9 @@
 ---
 
 - name: Ensures wallpaper directory exist
-  file: path="{{ ansible_env.HOME }}/Pictures/Wallpapers" state=directory
+  file:
+    path: "{{ wallpaper_dir }}"
+    state: directory
 
 - name: Download wallpaper
   get_url:
