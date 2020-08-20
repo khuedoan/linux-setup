@@ -23,7 +23,15 @@
   make:
     chdir: "{{ home }}/.local/src/{{ item }}"
     target: install
-  with_item:
+  with_items:
+    - "{{ essential_packages.custom }}"
+
+- name: Clean up after compiling custom packages
+  become: yes
+  make:
+    chdir: "{{ home }}/.local/src/{{ item }}"
+    target: clean
+  with_items:
     - "{{ essential_packages.custom }}"
 
 - name: Add user to video group for brightness control with the light package
