@@ -3,24 +3,24 @@
 - name: Init empty dotfiles repo
   command: "git init"
   args:
-    chdir: "{{ ansible_env.HOME }}"
+    chdir: "{{ home }}"
 
 - name: Add remote repository
   command: "git remote add origin {{ dotfiles_repo }}"
   args:
-    chdir: "{{ ansible_env.HOME }}"
+    chdir: "{{ home }}"
   register: add_remote
   failed_when: add_remote.rc != 0 and add_remote.rc != 128
 
 - name: Clone dotfiles repo
   git:
     repo: "{{ dotfiles_repo }}"
-    dest: "{{ ansible_env.HOME }}"
+    dest: "{{ home }}"
     update: yes
 
 - name: Disable show untracked files
   git_config:
     name: "status.showUntrackedFiles"
     scope: local
-    repo: "{{ ansible_env.HOME }}"
+    repo: "{{ home }}"
     value: "no"

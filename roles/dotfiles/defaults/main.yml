@@ -1,9 +1,12 @@
 ---
 
+home: "{{ ansible_env.HOME }}"
+
 dotfiles_repo: "https://github.com/khuedoan/dotfiles.git"
 
 wallpaper_url: "https://i.imgur.com/C3tCYsp.jpg"
-wallpaper_path: "{{ ansible_env.HOME }}/Pictures/Wallpapers/OneDarkBlur.jpg"
+wallpaper_dir: "{{ home }}/Pictures/Wallpapers/"
+wallpaper_path: "{{ wallpaper_dir }}/OneDarkBlur.jpg"
 
 aur_helper: trizen
 

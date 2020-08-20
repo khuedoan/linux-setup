@@ -18,25 +18,13 @@
     use: "{{ aur_helper }}"
     state: present
 
-- name: Download custom packages source
-  with_items: "{{ essential_packages.custom }}"
-  git:
-    repo: "https://github.com/khuedoan/{{ item }}.git"
-    dest: "/tmp/{{ item }}"
-
 - name: Install custom packages
-  with_items: "{{ essential_packages.custom }}"
   become: yes
   make:
-    chdir: "/tmp/{{ item }}"
+    chdir: "{{ home }}/.local/src/{{ item }}"
     target: install
-
-- name: Clean up custom package sources
-  with_items: "{{ essential_packages.custom }}"
-  become: yes
-  file:
-    path: "/tmp/{{ item }}"
-    state: absent
+  with_item:
+    - "{{ essential_packages.custom }}"
 
 - name: Add user to video group for brightness control with the light package
   become: yes
