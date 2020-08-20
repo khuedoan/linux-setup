@@ -1,7 +1,7 @@
 ---
 
 - name: Init empty dotfiles repo
-  command: "git init --separate-git-dir={{ ansible_env.HOME }}/.dotfiles"
+  command: "git init"
   args:
     chdir: "{{ ansible_env.HOME }}"
 
@@ -16,12 +16,11 @@
   git:
     repo: "{{ dotfiles_repo }}"
     dest: "{{ ansible_env.HOME }}"
-    separate_git_dir: "{{ ansible_env.HOME }}/.dotfiles"
     update: yes
 
 - name: Disable show untracked files
   git_config:
     name: "status.showUntrackedFiles"
     scope: local
-    repo: "{{ ansible_env.HOME }}/.dotfiles"
+    repo: "{{ ansible_env.HOME }}"
     value: "no"
