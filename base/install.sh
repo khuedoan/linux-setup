@@ -5,7 +5,7 @@
 #+---------+
 if [[ ! -f config.sh ]]; then
     echo "Missing config.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/config.sh
+    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/base/config.sh
 fi
 vim ./config.sh
 source ./config.sh
@@ -73,14 +73,8 @@ pacstrap /mnt base linux linux-firmware base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 if [[ ! -f chroot.sh ]]; then
     echo "Missing chroot.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/chroot.sh
+    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/base/chroot.sh
 fi
 cat config.sh chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
 arch-chroot /mnt /chroot.sh
-
-# Install system config files in ./root
-if [ "$system_config" -eq 1 ]; then
-    sudo cp -rv root/* /mnt/
-    sed -i "s/khuedoan/$username/g" /mnt/etc/systemd/system/getty@tty1.service.d/override.conf
-fi

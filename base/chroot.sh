@@ -59,21 +59,6 @@ passwd "$username"
 # Allow users in group wheel to use sudo
 sed -i '/%wheel\sALL=(ALL)\sALL/s/^#\s//g' /etc/sudoers
 
-# Download dotfiles installer
-if [ -n "$dotfiles_branch" ]; then
-    curl https://raw.githubusercontent.com/khuedoan/dotfiles/$dotfiles_branch/install.sh > /home/$username/install.sh
-    chown $username:$username /home/$username/install.sh
-    chmod +x /home/$username/install.sh
-fi
-
-# Install Intel VA-API driver
-if [ "$intel_vaapi_driver" -eq 1 ]; then
-    pacman --noconfirm --needed -S libva-intel-driver
-fi
-
-# Install NVIDIA driver
-pacman -S --noconfirm --needed nvidia lib32-nvidia-utils
-
 # Cleanup
 rm /chroot.sh
 exit
