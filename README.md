@@ -17,7 +17,7 @@
 
 ### Install script
 
-Boot to Arch Linux live USB and connect to the internet (using `iwctl`), then download and run the install script:
+Boot to Arch Linux live USB and connect to the internet (using `iwctl` if you're on WiFi), then download and run the install script:
 
 ```sh
 curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/base/install.sh
