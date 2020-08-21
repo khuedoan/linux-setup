@@ -6,6 +6,8 @@
     name: tlp
 
 - name: Install undervolting tool
+  become: yes
+  become_user: aurbuilder
   aur:
     name: intel-undervolt
     use: "{{ aur_helper }}"

@@ -1,6 +1,8 @@
 ---
 
 - name: Install Unikey
+  become: yes
+  become_user: aurbuilder
   aur:
     name: "ibus-bamboo"
     use: "{{ aur_helper }}"
