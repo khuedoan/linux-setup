@@ -9,3 +9,14 @@
     path: "{{ home }}/.ssh/id_rsa"
     type: rsa
     size: 4096
+
+- name: Add SSH public key to GitHub
+  uri:
+    url: https://api.github.com/user/keys
+    method: POST
+    body:
+      title: "{{ ansible_hostname }}"
+      key: "{{ lookup('file', '{{ home }}/.ssh/id_rsa.pub') }}"
+    body_format: json
+    headers:
+      Authorization: "token {{ github_access_token }}"
