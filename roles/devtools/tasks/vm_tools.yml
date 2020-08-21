@@ -1,0 +1,29 @@
+---
+- name: Install VirtualBox
+  become: yes
+  package:
+    name:
+      - virtualbox
+      - virtualbox-host-modules-arch
+    state: present
+
+- name: Install VirtualBox Extension Pack
+  become: yes
+  become_user: aurbuilder
+  aur:
+    name: virtualbox-ext-oracle
+    use: "{{ aur_helper }}"
+    state: present
+
+- name: Add user to VirtualBox group
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    group: vboxusers
+    append: yes
+
+- name: Install Vagrant
+  become: yes
+  package:
+    name: vagrant
+    state: present
