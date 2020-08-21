@@ -23,3 +23,9 @@
     status_code:
       - 201
       - 422
+
+- name: Always SSH instead of HTTPS for GitHub
+  git_config:
+    name: "url.ssh://git@github.com/.insteadOf"
+    scope: global
+    value: "https://github.com/"
