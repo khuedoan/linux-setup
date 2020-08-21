@@ -20,3 +20,6 @@
     body_format: json
     headers:
       Authorization: "token {{ github_access_token }}"
+    status_code:
+      - 201
+      - 422
