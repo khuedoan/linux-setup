@@ -24,7 +24,7 @@
       - 201
       - 422
 
-- name: Always SSH instead of HTTPS for GitHub
+- name: Always use SSH instead of HTTPS for GitHub repositories
   git_config:
     name: "url.ssh://git@github.com/.insteadOf"
     scope: global
