@@ -1,0 +1,16 @@
+---
+- name: Install Kubernetes tools
+  block:
+    - name: Install kubectl
+      become: yes
+      package:
+        name: kubectl
+        state: present
+    - name: Install Lens
+      become: yes
+      become_user: aurbuilder
+      aur:
+        name: lens-bin
+        use: "{{ aur_helper }}"
+        state: present
+
