@@ -1,0 +1,14 @@
+---
+- name: Install Python tools
+  become: yes
+  package:
+    name: python-pipenv
+    state: present
+
+- name: Install Rust tools
+  become: yes
+  package:
+    name:
+      - rust
+      - rust-analyzer
+    state: present
