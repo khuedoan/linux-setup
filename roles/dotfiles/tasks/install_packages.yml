@@ -6,6 +6,20 @@
     name: "{{ essential_packages.official + extra_packages.official }}"
     state: present
 
+- name: Create AUR builder user
+  become: yes
+  user:
+    name: aurbuilder
+    group: wheel
+
+- name: Allow AUR builder user to use sudo without password
+  become: yes
+  lineinfile:
+    path: /etc/sudoers.d/aurbuilder
+    line: "aurbuilder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+    create: yes
+    validate: "visudo -cf %s"
+
 - name: Install AUR helper ({{ aur_helper }})
   aur:
     name: "{{ aur_helper }}"
