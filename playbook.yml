@@ -5,3 +5,4 @@
   roles:
     - role: dotfiles
     - role: devtools
+    - role: sshkey
