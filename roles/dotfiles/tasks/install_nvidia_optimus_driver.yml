@@ -6,6 +6,8 @@
     name: nvidia lib32-nvidia-utils
 
 - name: Install optimus-manager
+  become: yes
+  become_user: aurbuilder
   aur:
     name: optimus-manager
     use: "{{ aur_helper }}"
