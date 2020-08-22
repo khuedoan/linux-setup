@@ -6,3 +6,4 @@
     - role: dotfiles
     - role: devtools
     - role: sshkey
+    - role: systemconfig
