@@ -19,7 +19,8 @@
   become: yes
   user:
     name: "{{ ansible_env.USER }}"
-    group: vboxusers
+    groups:
+      - vboxusers
     append: yes
 
 - name: Install Vagrant

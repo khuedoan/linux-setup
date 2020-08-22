@@ -56,5 +56,6 @@
   become: yes
   user:
     name: "{{ ansible_env.USER }}"
-    group: "video"
+    groups:
+      - video
     append: yes
