@@ -37,3 +37,8 @@ git clone https://github.com/khuedoan/linux-setup.git
 cd linux-setup
 ansible-playbook --ask-vault-pass --ask-become-pass playbook.yml
 ```
+
+## Acknowledgements
+
+- **kewlfft** for [Ansible module to manage packages from the AUR](https://github.com/kewlfft/ansible-aur)
+- **Asif Mahmud** for [adding new SSH key to GitHub account](https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/asif-mahmud1/2020/03/15/cloning-private-git-repository-using-ansible)
