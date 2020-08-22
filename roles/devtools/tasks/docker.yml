@@ -11,7 +11,8 @@
   become: yes
   user:
     name: "{{ ansible_env.USER }}"
-    group: docker
+    groups:
+      - docker
     append: yes
 
 - name: Enable Docker service
