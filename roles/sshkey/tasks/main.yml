@@ -28,9 +28,9 @@
 
     - name: Always use SSH instead of HTTPS for GitHub repositories
       git_config:
-        name: "url.git@github.com:.insteadOf"
+        name: "url.git@github.com:khuedoan/.insteadOf"
         scope: global
-        value: "https://github.com/"
+        value: "https://github.com/khuedoan/"
   rescue:
     - debug:
         msg: >
