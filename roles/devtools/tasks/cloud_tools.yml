@@ -1,10 +1,12 @@
 ---
 - name: Install Kubernetes tools
   block:
-    - name: Install kubectl
+    - name: Install kubectl and helm
       become: yes
       package:
-        name: kubectl
+        name:
+          - helm
+          - kubectl
         state: present
     - name: Install Lens
       become: yes
