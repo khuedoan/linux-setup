@@ -12,3 +12,10 @@
       - rust
       - rust-analyzer
     state: present
+
+- name: Install Go tools
+  become: yes
+  package:
+    name:
+      - go
+    state: present
