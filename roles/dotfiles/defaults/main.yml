@@ -27,7 +27,6 @@ essential_packages:
     - maim
     - npm
     - playerctl
-    - sshpass
     - sxhkd
     - translate-shell
     - ttf-dejavu
@@ -70,6 +69,7 @@ extra_packages:
     - pcmanfm-gtk3
     - pdfjs
     - ranger
+    - sshpass
     - tmux
     - tree
     - unrar
