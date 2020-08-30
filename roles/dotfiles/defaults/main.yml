@@ -27,6 +27,7 @@ essential_packages:
     - maim
     - npm
     - playerctl
+    - sshpass
     - sxhkd
     - translate-shell
     - ttf-dejavu
