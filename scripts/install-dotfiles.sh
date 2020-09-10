@@ -42,20 +42,10 @@ install_aur_helper() {
 
 install_core_packages() {
     sudo pacman --noconfirm --needed -S alsa-utils arandr autorandr bc bspwm dunst feh firefox fzf git libnotify light maim npm playerctl sxhkd translate-shell ttf-dejavu wmctrl xautolock xcape xclip xdotool xorg-server xorg-setxkbmap xorg-xinit xorg-xrandr xorg-xsetroot xss-lock
-    trizen --noconfirm --needed -S mons nerd-fonts-source-code-pro polybar
+    trizen --noconfirm --needed -S mons nerd-fonts-source-code-pro picom-git polybar
 
     # Add user to video group to adjust backlight
     sudo usermod -aG video $USER
-
-    # compton
-    sudo pacman --noconfirm --needed -S asciidoc libconfig
-    git clone https://github.com/tryone144/compton.git
-    cd compton
-    make PREFIX=/usr/local
-    make docs
-    sudo make PREFIX=/usr/local install
-    cd ..
-    rm -rf compton
 
     # st
     git clone https://github.com/khuedoan/st
