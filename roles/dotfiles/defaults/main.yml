@@ -42,8 +42,8 @@ essential_packages:
     - xorg-xsetroot
     - xss-lock
   aur:
-    - compton-tryone-git
     - nerd-fonts-source-code-pro
+    - picom-git
     - polybar
   custom:
     - dmenu
