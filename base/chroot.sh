@@ -2,7 +2,7 @@
 #| Configuration in chroot |
 #+-------------------------+
 # Essential packages
-pacman --noconfirm -S $ucode networkmanager git neovim zsh ansible
+pacman --noconfirm -S $ucode networkmanager git ansible
 
 # Swap
 if [ -n "$swap_size" ]; then
@@ -15,7 +15,7 @@ if [ -n "$swap_size" ]; then
 fi
 
 # Timezone and localization
-ln -sf /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
 hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen && locale-gen
 echo 'LANG=en_US.UTF-8' > /etc/locale.conf
@@ -27,14 +27,15 @@ systemctl enable NetworkManager
 # Boot
 if [ "$bootloader" = "systemd-boot" ]; then
      bootctl --path=/boot install
-     echo 'default arch' > /boot/loader/loader.conf
+     echo 'default arch.conf' > /boot/loader/loader.conf
+     echo 'console-mode auto' >> /boot/loader/loader.conf
      echo 'timeout 0' >> /boot/loader/loader.conf
      echo 'editor  0' >> /boot/loader/loader.conf
      echo 'title   Arch Linux' > /boot/loader/entries/arch.conf
      echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
      [ -n "$ucode" ] && echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
      echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
-     echo "options root=$root_partition rw quiet" >> /boot/loader/entries/arch.conf
+     echo "options rw nowatchdog quiet" >> /boot/loader/entries/arch.conf
 elif [ "$bootloader" = "efistub" ]; then
      [ -n "$ucode" ] && ucode_init="initrd=/$ucode.img"
      efibootmgr -d $disk -p 1 -c -L "Arch Linux" -l /vmlinuz-linux -u "$ucode_init initrd=/initramfs-linux.img root=$root_partition rw quiet" -v
@@ -48,6 +49,7 @@ echo "StandardOutput=null\nStandardError=journal+console" | SYSTEMD_EDITOR="tee 
 # Pacman
 sed -i 's/^#Color/Color/g;/#\[multilib\]/,/#Include/ s/^#//g' /etc/pacman.conf
 pacman -Syy
+vim /etc/pacman.conf
 
 # Users
 echo "ROOT PASSWORD"
@@ -59,6 +61,14 @@ passwd "$username"
 # Allow users in group wheel to use sudo
 sed -i '/%wheel\sALL=(ALL)\sALL/s/^#\s//g' /etc/sudoers
 
+# Change shell to zsh
+chsh -s /bin/zsh
+chsh -s /bin/zsh victor
+
+# Manual intervention
+vim /boot/loader/entries/arch.conf
+
 # Cleanup
 rm /chroot.sh
+
 exit
