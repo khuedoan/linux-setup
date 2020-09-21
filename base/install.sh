@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 #+---------+
@@ -44,6 +45,10 @@ sleep 5
 # Format the partitions
 mkfs.fat -F32 "$boot_partition"
 mkfs.ext4 "$root_partition"
+
+# Set up encryption
+modprobe dm-crypt dm-mod
+cryptsetup 
 
 # Mount the file systems
 mount "$root_partition" /mnt
