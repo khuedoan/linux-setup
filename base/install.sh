@@ -6,7 +6,7 @@
 #+---------+
 if [[ ! -f config.sh ]]; then
     echo "Missing config.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/base/config.sh
+    curl -O https://raw.githubusercontent.com/nho1ix/linux-setup/master/base/config.sh
 fi
 vim ./config.sh
 source ./config.sh
@@ -37,21 +37,24 @@ n
 w
 EOF
 else
-    cfdisk "$disk"
+    cgdisk "$disk"
 fi
 lsblk
 sleep 5
 
-# Format the partitions
+# Format the boot partition
 mkfs.fat -F32 "$boot_partition"
-mkfs.ext4 "$root_partition"
 
 # Set up encryption
 modprobe dm-crypt dm-mod
-cryptsetup 
+cryptsetup luksFormat -v -s 512 -h sha512 "$root_partition"
+cryptsetup open "$root_partition" encrypted
+
+# Format encrypted partition
+mkfs.ext4 "$encrypted_partition"
 
 # Mount the file systems
-mount "$root_partition" /mnt
+mount "$encrypted_partition" /mnt
 mkdir /mnt/boot
 mount "$boot_partition" /mnt/boot
 
@@ -70,7 +73,7 @@ cat /etc/pacman.d/mirrorlist
 rm /etc/pacman.d/mirrorlist.backup
 
 # Install base packages
-pacstrap /mnt base linux linux-firmware base-devel
+pacstrap /mnt base linux linux-firmware base-devel linux-headers alsa-utils capitaine-cursors ccache chromium cpupower discord dunst earlyoom exa firefox firetools flex geeqie go gparted gufw htop khal lxappearance lxsession moc man-db man-pages otf-hermit pamixer pandoc pavucontrol powertop qalculate-gtk redshift ripgrep termdown thunderbird transmission-gtk tree ttf-font-awesome udiskie unclutter vim-ultisnips wget xorg-font-util xorg-fonts-100dpi xorg-fonts-75dpi xorg-server-devel xorg-xbacklight xorg-xev xorg-xfontsel xorg-xinput xorg-xsetroot zenity zsh
 
 #+----------------------+
 #| Configure the system |
@@ -78,7 +81,7 @@ pacstrap /mnt base linux linux-firmware base-devel
 genfstab -U /mnt >> /mnt/etc/fstab
 if [[ ! -f chroot.sh ]]; then
     echo "Missing chroot.sh, downloading..."
-    curl -O https://raw.githubusercontent.com/khuedoan/linux-setup/master/base/chroot.sh
+    curl -O https://raw.githubusercontent.com/nho1ix/linux-setup/master/base/chroot.sh
 fi
 cat config.sh chroot.sh > /mnt/chroot.sh
 chmod +x /mnt/chroot.sh
