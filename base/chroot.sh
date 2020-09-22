@@ -32,7 +32,7 @@ if [ "$bootloader" = "systemd-boot" ]; then
      echo 'editor  0' >> /boot/loader/loader.conf
      echo 'title   Arch Linux' > /boot/loader/entries/arch.conf
      echo 'linux   /vmlinuz-linux' >> /boot/loader/entries/arch.conf
-     [ -n "$ucode" ] && echo 'initrd  /intel-ucode.img' >> /boot/loader/entries/arch.conf
+     [ -n "$ucode" ] && echo "initrd  /$ucode.img" >> /boot/loader/entries/arch.conf
      echo 'initrd  /initramfs-linux.img' >> /boot/loader/entries/arch.conf
      echo "options root=$root_partition rw quiet" >> /boot/loader/entries/arch.conf
 elif [ "$bootloader" = "efistub" ]; then
