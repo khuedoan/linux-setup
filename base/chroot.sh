@@ -52,7 +52,6 @@ echo "StandardOutput=null\nStandardError=journal+console" | SYSTEMD_EDITOR="tee 
 sed -i 's/^#Color/Color/g;/#\[multilib\]/,/#Include/ s/^#//g' /etc/pacman.conf
 sed -i '33 a\ILoveCandy' /etc/pacman.conf
 pacman -Syy
-vim /etc/pacman.conf
 
 # Users
 echo "ROOT PASSWORD"
