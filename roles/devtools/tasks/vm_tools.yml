@@ -29,6 +29,13 @@
     name: bridge-utils dnsmasq ebtables edk2-ovmf openbsd-netcat qemu virt-manager
     state: present
 
+- name: Enable libvirt service
+  become: yes
+  service:
+    name: libvirtd
+    state: started
+    enabled: yes
+
 - name: Add user to VirtualBox group
   become: yes
   user:
