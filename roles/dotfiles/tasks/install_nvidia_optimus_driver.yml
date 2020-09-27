@@ -3,7 +3,9 @@
 - name: Install NVIDIA driver
   become: yes
   package:
-    name: nvidia lib32-nvidia-utils
+    name:
+      - nvidia
+      - lib32-nvidia-utils
 
 - name: Install optimus-manager
   become: yes

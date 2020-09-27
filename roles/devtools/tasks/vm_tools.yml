@@ -26,7 +26,14 @@
 - name: Install libvirt
   become: yes
   package:
-    name: bridge-utils dnsmasq ebtables edk2-ovmf openbsd-netcat qemu virt-manager
+    name:
+      - bridge-utils
+      - dnsmasq
+      - ebtables
+      - edk2-ovmf
+      - openbsd-netcat
+      - qemu
+      - virt-manager
     state: present
 
 - name: Enable libvirt service
