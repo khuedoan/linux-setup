@@ -8,10 +8,10 @@
 
 - Install Arch Linux automatically (scripts in `./base`)
 - Configure the newly installed system automatically:
-    - Install my dotfiles and custom packages
-    - Install NVIDIA driver with `optimus-manager` if needed
-    - Install system configuration files
-    - And more
+  - Install my dotfiles and custom packages
+  - Install NVIDIA driver with `optimus-manager` if needed
+  - Install system configuration files
+  - And more
 
 ## Usage
 
