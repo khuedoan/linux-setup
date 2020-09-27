@@ -29,6 +29,14 @@
     name: bridge-utils dnsmasq ebtables edk2-ovmf openbsd-netcat qemu virt-manager
     state: present
 
+- name: Add user to VirtualBox group
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups:
+      - libvirt
+    append: yes
+
 - name: Install Vagrant
   become: yes
   package:
