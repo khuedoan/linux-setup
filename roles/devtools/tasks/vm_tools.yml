@@ -23,6 +23,12 @@
       - vboxusers
     append: yes
 
+- name: Install libvirt
+  become: yes
+  package:
+    name: bridge-utils dnsmasq ebtables edk2-ovmf openbsd-netcat qemu virt-manager
+    state: present
+
 - name: Install Vagrant
   become: yes
   package:
