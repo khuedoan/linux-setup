@@ -25,6 +25,7 @@ essential_packages:
     - libnotify
     - light
     - maim
+    - nnn
     - npm
     - playerctl
     - sxhkd
@@ -68,7 +69,6 @@ extra_packages:
     - papirus-icon-theme
     - pcmanfm-gtk3
     - pdfjs
-    - ranger
     - sshpass
     - tmux
     - tree
