@@ -1,7 +1,6 @@
 ---
 
-- hosts: localhost
-  connection: local
+- hosts: all
   roles:
     - role: dotfiles
     - role: devtools

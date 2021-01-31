@@ -35,7 +35,7 @@ After login for the first time, connect to the internet (using `nmtui`), downloa
 ```sh
 git clone https://github.com/khuedoan/linux-setup.git
 cd linux-setup
-ansible-playbook --ask-vault-pass --ask-become-pass playbook.yml
+make
 ```
 
 ## Acknowledgements
