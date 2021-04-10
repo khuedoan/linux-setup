@@ -1,9 +1,0 @@
-- name: Ensures getty tty1 override directory exist
-  become: yes
-  file: path="/etc/systemd/system/getty@tty1.service.d/" state=directory
-
-- name: Overwrite getty to enable autologin
-  become: yes
-  template:
-    src: "autologin.conf.j2"
-    dest: "/etc/systemd/system/getty@tty1.service.d/override.conf"
