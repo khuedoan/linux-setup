@@ -10,8 +10,8 @@ init:
 
 run:
 	. .venv/bin/activate \
-		&& ansible-playbook --ask-become-pass --inventory hosts.ini playbook.yml
+		&& ansible-playbook --ask-become-pass --inventory hosts.ini main.yml
 
 dotfiles:
 	. .venv/bin/activate \
-		&& ansible-playbook --inventory hosts.ini --tags dotfiles playbook.yml
+		&& ansible-playbook --inventory hosts.ini --tags dotfiles main.yml
