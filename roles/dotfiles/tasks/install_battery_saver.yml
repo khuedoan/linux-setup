@@ -1,5 +1,3 @@
----
-
 - name: Install tlp
   become: yes
   package:

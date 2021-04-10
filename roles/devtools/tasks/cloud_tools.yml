@@ -1,4 +1,3 @@
----
 - name: Install Kubernetes tools
   block:
     - name: Install kubectl and helm

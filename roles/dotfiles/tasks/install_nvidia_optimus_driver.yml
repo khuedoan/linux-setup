@@ -1,5 +1,3 @@
----
-
 - name: Install NVIDIA driver
   become: yes
   package:

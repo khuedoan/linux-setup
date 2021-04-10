@@ -1,4 +1,3 @@
----
 - name: Copy touchpad config file
   become: yes
   copy:

@@ -1,5 +1,3 @@
----
-
 home: "{{ ansible_env.HOME }}"
 
 dotfiles_repo: "https://github.com/khuedoan/dotfiles.git"

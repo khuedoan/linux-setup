@@ -1,8 +1,7 @@
----
-
 - hosts: all
   roles:
-    - { role: dotfiles, tags: dotfiles }
-    - { role: devtools, tags: devtools }
-    - { role: sshkey, tags: sshkey }
-    - { role: systemconfig, tags: systemconfig }
+    - role: dotfiles
+      tags: dotfiles
+    - role: devtools
+    - role: sshkey
+    - role: systemconfig

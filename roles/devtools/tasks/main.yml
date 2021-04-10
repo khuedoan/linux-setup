@@ -1,4 +1,3 @@
----
 - include_tasks: vm_tools.yml
 - include_tasks: docker.yml
 - include_tasks: programming_languages.yml

@@ -1,5 +1,3 @@
----
-
 - name: Ensures getty tty1 override directory exist
   become: yes
   file: path="/etc/systemd/system/getty@tty1.service.d/" state=directory
