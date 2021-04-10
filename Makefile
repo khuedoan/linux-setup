@@ -6,7 +6,8 @@ init:
 	python3 -m venv .venv \
 		&& . .venv/bin/activate \
 		&& pip3 install --upgrade pip \
-		&& pip3 install -r requirements.txt
+		&& pip3 install -r requirements.txt \
+		&& ansible-galaxy install -r requirements.yml
 
 run:
 	. .venv/bin/activate \
