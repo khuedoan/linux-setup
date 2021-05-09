@@ -53,16 +53,6 @@ mount "$boot_partition" /mnt/boot
 #+--------------+
 #| Installation |
 #+--------------+
-# Select the mirrors
-pacman -Syy
-pacman --noconfirm --needed -S pacman-contrib
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl "$mirrorlist_generator" > /etc/pacman.d/mirrorlist.backup
-sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.backup
-rankmirrors -n 5 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
-sed -i '/^##/d' /etc/pacman.d/mirrorlist
-cat /etc/pacman.d/mirrorlist
-rm /etc/pacman.d/mirrorlist.backup
 
 # Install base packages
 pacstrap /mnt base linux linux-firmware base-devel
