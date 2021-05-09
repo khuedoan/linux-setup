@@ -2,7 +2,7 @@
 #| Configuration in chroot |
 #+-------------------------+
 # Essential packages
-pacman --noconfirm -S $ucode networkmanager git neovim zsh ansible
+pacman --noconfirm -S $ucode networkmanager git neovim zsh
 
 # Swap
 if [ -n "$swap_size" ]; then
