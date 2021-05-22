@@ -1,0 +1,126 @@
+- name: Install packages
+  become: yes
+  package:
+    name:
+      - alsa-utils
+      - arandr
+      - autorandr
+      - bc
+      - bspwm
+      - dunst
+      - feh
+      - firefox
+      - fzf
+      - git
+      - libnotify
+      - light
+      - maim
+      - nnn
+      - npm
+      - playerctl
+      - sxhkd
+      - translate-shell
+      - ttf-dejavu
+      - wmctrl
+      - xautolock
+      - xcape
+      - xclip
+      - xdotool
+      - xorg-server
+      - xorg-setxkbmap
+      - xorg-xinit
+      - xorg-xrandr
+      - xorg-xsetroot
+      - xss-lock
+      # Extras
+      - arc-gtk-theme
+      - aria2
+      - exfatprogs
+      - glances
+      - gvfs
+      - htop
+      - man
+      - mpv
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - ntfs-3g
+      - papirus-icon-theme
+      - pcmanfm-gtk3
+      - pdfjs
+      - sshpass
+      - tmux
+      - tree
+      - unrar
+      - unzip
+      - w3m
+      - xarchiver
+      - youtube-dl
+      - zathura
+      - zathura-pdf-mupdf
+      - zip
+    state: present
+
+- name: Create AUR builder user
+  become: yes
+  user:
+    name: aurbuilder
+    group: wheel
+
+- name: Allow AUR builder user to use sudo without password
+  become: yes
+  lineinfile:
+    path: /etc/sudoers.d/aurbuilder
+    line: "aurbuilder ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+    create: yes
+    validate: "visudo -cf %s"
+
+- name: Install AUR helper
+  become: yes
+  become_user: aurbuilder
+  aur:
+    name: trizen
+    use: makepkg
+    state: present
+
+- name: Install packages from AUR
+  become: yes
+  become_user: aurbuilder
+  aur:
+    name:
+      - nerd-fonts-source-code-pro
+      - picom-git
+      - polybar
+      # Extras
+      - ttf-ms-fonts
+      - ibus-bamboo
+    use: trizen
+    state: present
+
+- name: Clone custom packages source
+  git:
+    repo: "https://github.com/khuedoan/{{ item }}"
+    dest: "~/.local/src/{{ item }}"
+  with_items:
+    - dmenu
+    - slock
+    - st
+
+- name: Install custom packages
+  become: yes
+  make:
+    chdir: "~/.local/src/{{ item }}"
+    target: install
+  with_items:
+    - dmenu
+    - slock
+    - st
+
+- name: Add user to video group for brightness control with the light package
+  become: yes
+  user:
+    name: "{{ ansible_user }}"
+    groups:
+      - video
+    append: yes
