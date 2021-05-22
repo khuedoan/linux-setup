@@ -1,2 +1,0 @@
-- include_tasks: vm_tools.yml
-- include_tasks: docker.yml
