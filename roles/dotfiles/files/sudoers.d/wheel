@@ -1,2 +1,0 @@
-## Allow members of group wheel to execute any command
-%wheel ALL=(ALL) ALL

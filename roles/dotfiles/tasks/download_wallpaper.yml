@@ -1,9 +1,0 @@
-- name: Ensures wallpaper directory exist
-  file:
-    path: "{{ wallpaper_dir }}"
-    state: directory
-
-- name: Download wallpaper
-  get_url:
-    url: "{{ wallpaper_url }}"
-    dest: "{{ wallpaper_path }}"

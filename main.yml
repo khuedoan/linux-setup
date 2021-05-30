@@ -1,8 +1,7 @@
 - hosts: all
   roles:
-    - role: kewlfft.aur
+    - role: system-config
+    - role: packages
+      tags: packages
     - role: dotfiles
       tags: dotfiles
-    - role: devtools
-    - role: sshkey
-    - role: system-config

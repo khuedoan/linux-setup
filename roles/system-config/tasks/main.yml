@@ -1,6 +1,8 @@
-- name: Copy touchpad config file
+- name: Allow current user to install packages without password
   become: yes
-  copy:
-    src: "touchpad.conf"
-    dest: "/etc/X11/xorg.conf.d/30-touchpad.conf"
-    mode: 0644
+  lineinfile:
+    dest: /etc/sudoers.d/pacman
+    line: "{{ ansible_env.USER }} ALL=(ALL) NOPASSWD: /usr/bin/pacman"
+    state: present
+    create: yes
+    validate: /usr/bin/visudo -cf %s
