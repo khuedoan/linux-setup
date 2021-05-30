@@ -1,0 +1,18 @@
+- name: Install reflector
+  become: yes
+  pacman:
+    name: reflector
+    state: present
+
+- name: Copy reflector config file
+  become: yes
+  copy:
+    src: reflector.conf
+    dest: /etc/xdg/reflector/reflector.conf
+
+- name: Enable reflector service
+  become: yes
+  systemd:
+    name: reflector
+    state: started
+    enabled: yes
