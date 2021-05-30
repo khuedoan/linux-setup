@@ -2,6 +2,7 @@
   roles:
     - role: system-config
     - role: keymap
+    - role: kewlfft.aur
     - role: packages
       tags: packages
     - role: dotfiles

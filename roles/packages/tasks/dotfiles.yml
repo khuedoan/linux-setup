@@ -11,13 +11,18 @@
       - maim
       - neovim
       - nnn
-      - picom
       - tmux
       - xclip
       - xorg-server
       - xorg-xinit
       - zsh
     state: present
+
+- name: Install packages from the AUR
+  aur:
+    name:
+      - nerd-fonts-fira-code
+      - picom-git
 
 - name: Clone custom packages source code
   git:
