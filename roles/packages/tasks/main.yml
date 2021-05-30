@@ -23,7 +23,7 @@
       - ttf-dejavu
       - wmctrl
       - xautolock
-      - xcape
+      - interception-caps2esc
       - xclip
       - xdotool
       - xorg-server
