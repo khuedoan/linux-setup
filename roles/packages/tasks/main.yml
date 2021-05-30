@@ -89,7 +89,7 @@
   become_user: aurbuilder
   aur:
     name:
-      - nerd-fonts-source-code-pro
+      - nerd-fonts-fira-code
       - picom-git
       - polybar
       # Extras
