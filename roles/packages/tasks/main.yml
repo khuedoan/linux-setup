@@ -80,7 +80,7 @@
   become: yes
   become_user: aurbuilder
   aur:
-    name: trizen
+    name: paru
     use: makepkg
     state: present
 
@@ -95,7 +95,7 @@
       # Extras
       - ttf-ms-fonts
       - ibus-bamboo
-    use: trizen
+    use: paru
     state: present
 
 - name: Clone custom packages source
