@@ -1,2 +1,4 @@
 - include_tasks: sudo.yml
-- include_tasks: keymap.yml
+- include_tasks: pacman.yml
+- include_tasks: keyboard.yml
+- include_tasks: touchpad.yml
