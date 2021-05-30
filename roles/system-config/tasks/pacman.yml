@@ -14,5 +14,4 @@
   become: yes
   systemd:
     name: reflector
-    state: started
     enabled: yes
