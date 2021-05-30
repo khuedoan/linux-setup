@@ -1,0 +1,38 @@
+- name: Install packages
+  become: yes
+  pacman:
+    name:
+      - dunst
+      - firefox
+      - fzf
+      - git
+      - interception-caps2esc
+      - light
+      - maim
+      - neovim
+      - nnn
+      - picom
+      - tmux
+      - xclip
+      - xorg-server
+      - xorg-xinit
+      - zsh
+    state: present
+
+- name: Clone custom packages source code
+  git:
+    repo: "https://github.com/khuedoan/{{ item }}"
+    dest: "~/.local/src/{{ item }}"
+  loop:
+    - dmenu
+    - dwm
+    - slock
+    - st
+  register: custom_packages_source
+
+- name: Install custom packages
+  become: yes
+  make:
+    chdir: "{{ item.invocation.module_args.dest }}"
+    target: install
+  loop: "{{ custom_packages_source.results }}"
