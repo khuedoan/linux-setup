@@ -6,3 +6,4 @@
       tags: packages
     - role: dotfiles
       tags: dotfiles
+    - role: ssh-key

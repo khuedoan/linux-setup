@@ -8,6 +8,7 @@ init:
 run:
 	ansible-playbook \
 		--ask-become-pass \
+		--ask-vault-pass \
 		--inventory hosts.ini \
 		main.yml
 

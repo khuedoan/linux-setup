@@ -1,13 +1,19 @@
+- name: Install OpenSSH
+  become: yes
+  pacman:
+    name: openssh
+    state: present
+
 - name: Ensure SSH configuration directory exists
   file:
-    path: "{{ home }}/.ssh/"
+    path: "~/.ssh/"
     state: directory
 
 - name: Generate SSH key
   openssh_keypair:
-    path: "{{ home }}/.ssh/id_rsa"
-    type: rsa
-    size: 4096
+    path: "~/.ssh/id_ed25519"
+    type: ed25519
+  register: ssh_key
 
 - name: Using SSH on GitHub
   block:
@@ -17,7 +23,7 @@
         method: POST
         body:
           title: "{{ ansible_hostname }}"
-          key: "{{ lookup('file', '{{ home }}/.ssh/id_rsa.pub') }}"
+          key: "{{ ssh_key.public_key }}"
         body_format: json
         headers:
           Authorization: "token {{ github_access_token }}"
