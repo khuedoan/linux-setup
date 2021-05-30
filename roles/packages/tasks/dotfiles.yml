@@ -9,9 +9,10 @@
       - interception-caps2esc
       - light
       - maim
-      - neovim
       - nnn
+      - nodejs
       - tmux
+      - ripgrep
       - xclip
       - xorg-server
       - xorg-xinit
@@ -23,6 +24,7 @@
     name:
       - nerd-fonts-fira-code
       - picom-git
+      - neovim-git # TODO use stable version of Neovim when 0.5 is out
 
 - name: Clone custom packages source code
   git:
