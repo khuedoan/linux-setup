@@ -2,6 +2,8 @@
   become: yes
   pacman:
     name:
+      - alsa-utils
+      - arandr
       - dunst
       - firefox
       - fzf
@@ -11,11 +13,13 @@
       - maim
       - nnn
       - nodejs
-      - tmux
+      - playerctl
       - ripgrep
+      - tmux
       - xclip
       - xorg-server
       - xorg-xinit
+      - xorg-xrandr
       - zsh
     state: present
 
@@ -35,11 +39,11 @@
     - dwm
     - slock
     - st
-  register: custom_packages_source
+  register: custom_packages_sources
 
 - name: Install custom packages
   become: yes
   make:
     chdir: "{{ item.invocation.module_args.dest }}"
     target: install
-  loop: "{{ custom_packages_source.results }}"
+  loop: "{{ custom_packages_sources.results }}"
