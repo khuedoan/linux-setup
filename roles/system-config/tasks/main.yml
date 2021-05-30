@@ -1,8 +1,2 @@
-- name: Allow current user to install packages without password
-  become: yes
-  lineinfile:
-    dest: /etc/sudoers.d/pacman
-    line: "{{ ansible_env.USER }} ALL=(ALL) NOPASSWD: /usr/bin/pacman"
-    state: present
-    create: yes
-    validate: /usr/bin/visudo -cf %s
+- include_tasks: sudo.yml
+- include_tasks: keymap.yml
