@@ -22,3 +22,15 @@
     repo: "{{ dotfiles_repo }}"
     dest: "~"
     update: yes
+
+- name: Clone zsh plugin manager
+  git:
+    repo: "https://github.com/zdharma/zinit.git"
+    dest: "~/.zsh/zinit"
+    depth: 1
+
+- name: Clone neovim package manager
+  git:
+    repo: "https://github.com/savq/paq-nvim.git"
+    dest: "~/.local/share/nvim/site/pack/paqs/opt/paq-nvim"
+    depth: 1
