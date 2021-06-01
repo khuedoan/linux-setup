@@ -1,0 +1,19 @@
+- name: Install extra packages
+  become: yes
+  pacman:
+    name:
+      - aria2
+      - mpv
+      - translate-shell
+      - tree
+      - unrar
+      - unzip
+      - youtube-dl
+      - zathura
+      - zathura-pdf-mupdf
+    state: present
+
+- name: Install extra packages from the AUR
+  aur:
+    name:
+      - ibus-bamboo

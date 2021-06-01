@@ -1,4 +1,4 @@
-- name: Install packages
+- name: Install dotfiles packages
   become: yes
   pacman:
     name:
@@ -23,7 +23,7 @@
       - zsh
     state: present
 
-- name: Install packages from the AUR
+- name: Install dotfiles packages from the AUR
   aur:
     name:
       - nerd-fonts-fira-code
