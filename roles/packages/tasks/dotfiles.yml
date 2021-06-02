@@ -4,6 +4,7 @@
     name:
       - alsa-utils
       - arandr
+      - bspwm
       - dunst
       - firefox
       - fzf
@@ -15,6 +16,7 @@
       - nodejs
       - playerctl
       - ripgrep
+      - sxhkd
       - tmux
       - xclip
       - xorg-server
@@ -26,9 +28,11 @@
 - name: Install dotfiles packages from the AUR
   aur:
     name:
+      - neovim-git # TODO use stable version of Neovim when 0.5 is out
       - nerd-fonts-fira-code
       - picom-git
-      - neovim-git # TODO use stable version of Neovim when 0.5 is out
+      - polybar
+    state: present
 
 - name: Clone custom packages source code
   git:
@@ -36,7 +40,6 @@
     dest: "~/.local/src/{{ item }}"
   loop:
     - dmenu
-    - dwm
     - slock
     - st
   register: custom_packages_sources

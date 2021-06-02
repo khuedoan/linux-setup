@@ -1,3 +1,2 @@
-- include_tasks: aur-helper.yml
 - include_tasks: dotfiles.yml
 - include_tasks: extra.yml
