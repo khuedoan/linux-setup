@@ -4,12 +4,12 @@
     name:
       - alsa-utils
       - arandr
+      - autorandr
       - bspwm
       - dunst
       - firefox
       - fzf
       - git
-      - interception-caps2esc
       - light
       - maim
       - nnn
@@ -19,9 +19,11 @@
       - sxhkd
       - tmux
       - xclip
+      - xdotool
       - xorg-server
       - xorg-xinit
       - xorg-xrandr
+      - xorg-xsetroot
       - zsh
     state: present
 
