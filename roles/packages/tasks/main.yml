@@ -1,2 +1,3 @@
 - include_tasks: dotfiles.yml
 - include_tasks: tools.yml
+- include_tasks: docker.yml
