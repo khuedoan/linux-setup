@@ -6,5 +6,6 @@
       tags: packages
     - role: dotfiles
       tags: dotfiles
+    - role: unikey
     - role: ssh-key
     - role: games

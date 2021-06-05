@@ -1,0 +1,12 @@
+- name: Install Vietnames input method
+  aur:
+    name: ibus-bamboo
+    state: present
+
+- name: Set ibus config
+  dconf:
+    key: "/desktop/ibus/{{ item }}"
+    value: "false"
+    state: present
+  loop:
+    - key: general/engines-order

@@ -12,8 +12,3 @@
       - zathura
       - zathura-pdf-mupdf
     state: present
-
-- name: Install extra packages from the AUR
-  aur:
-    name:
-      - ibus-bamboo
