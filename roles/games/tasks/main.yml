@@ -1,0 +1,4 @@
+- name: Install Steam
+  become: yes
+  pacman:
+    name: steam

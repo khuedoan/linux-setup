@@ -1,9 +1,10 @@
 - hosts: all
   roles:
-    - role: system-config
     - role: kewlfft.aur
+    - role: system-config
     - role: packages
       tags: packages
     - role: dotfiles
       tags: dotfiles
     - role: ssh-key
+    - role: games
