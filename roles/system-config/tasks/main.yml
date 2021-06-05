@@ -3,3 +3,4 @@
 - include_tasks: aur-helper.yml
 - include_tasks: keyboard.yml
 - include_tasks: touchpad.yml
+- include_tasks: bluetooth.yml
