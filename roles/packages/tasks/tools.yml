@@ -1,4 +1,4 @@
-- name: Install extra packages
+- name: Install tools
   become: yes
   pacman:
     name:
