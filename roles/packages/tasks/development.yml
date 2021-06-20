@@ -1,0 +1,15 @@
+- name: Install development tools
+  become: yes
+  pacman:
+    name:
+      - gimp
+      - kubectl
+    state: present
+
+- name: Install development tools from the AUR
+  aur:
+    name:
+      - cloudflared-bin
+      - lens-bin
+      - kind
+    state: present
