@@ -14,11 +14,11 @@
       - light
       - maim
       - nnn
-      - nodejs
       - noto-fonts
       - noto-fonts-cjk
       - noto-fonts-emoji
       - noto-fonts-extra
+      - npm
       - pcmanfm-gtk3
       - playerctl
       - ripgrep
