@@ -5,6 +5,7 @@
       - alsa-utils
       - arandr
       - autorandr
+      - bat
       - bspwm
       - dunst
       - feh
