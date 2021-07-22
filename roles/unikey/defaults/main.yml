@@ -1,4 +1,5 @@
 ibus_config:
+  general/preload-engines: "['xkb:us::eng', 'Bamboo']"
   general/engines-order: "['xkb:us::eng', 'Bamboo']"
   general/hotkey/triggers: "['<Control>space']"
   general/use-global-engine: "true"
