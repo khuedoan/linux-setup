@@ -14,6 +14,7 @@
       - git
       - light
       - maim
+      - neovim
       - nnn
       - noto-fonts
       - noto-fonts-cjk
@@ -37,7 +38,6 @@
 - name: Install dotfiles packages from the AUR
   aur:
     name:
-      - neovim-git # TODO use stable version of Neovim when 0.5 is out
       - nerd-fonts-fira-code
       - picom-git
       - polybar
