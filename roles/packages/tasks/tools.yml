@@ -2,6 +2,7 @@
   become: yes
   pacman:
     name:
+      - ansible
       - aria2
       - github-cli
       - glances
