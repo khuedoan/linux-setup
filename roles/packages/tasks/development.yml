@@ -3,7 +3,13 @@
   pacman:
     name:
       - gimp
+      - go
+      - helm
       - kubectl
+      - kustomize
+      - rust
+      - terraform
+      - terragrunt
     state: present
 
 - name: Install development tools from the AUR

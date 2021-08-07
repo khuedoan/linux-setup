@@ -3,6 +3,7 @@
   pacman:
     name:
       - aria2
+      - github-cli
       - glances
       - mpv
       - translate-shell
