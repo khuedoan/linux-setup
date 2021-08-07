@@ -35,6 +35,12 @@
       - zsh
     state: present
 
+- name: Change default shell to Zsh
+  become: yes
+  user:
+    user: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+
 - name: Install dotfiles packages from the AUR
   aur:
     name:
