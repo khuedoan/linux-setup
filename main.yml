@@ -2,10 +2,10 @@
   roles:
     - role: kewlfft.aur
     - role: system-config
-    - role: packages
-      tags: packages
     - role: dotfiles
       tags: dotfiles
+    - role: packages
+      tags: packages
     - role: unikey
     - role: ssh-key
     - role: games
