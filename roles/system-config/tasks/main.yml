@@ -4,3 +4,4 @@
 - include_tasks: keyboard.yml
 - include_tasks: touchpad.yml
 - include_tasks: bluetooth.yml
+- include_tasks: pipewire.yml
