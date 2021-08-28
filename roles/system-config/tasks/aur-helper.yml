@@ -1,5 +1,5 @@
 - name: Install AUR helper
   aur:
-    name: paru
+    name: paru-bin
     use: makepkg
     state: present
