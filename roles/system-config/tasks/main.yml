@@ -1,3 +1,4 @@
+- include_tasks: bootloader.yml
 - include_tasks: sudo.yml
 - include_tasks: pacman.yml
 - include_tasks: aur-helper.yml
