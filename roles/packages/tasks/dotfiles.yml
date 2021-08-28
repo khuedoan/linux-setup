@@ -32,6 +32,7 @@
       - xorg-xinit
       - xorg-xrandr
       - xorg-xsetroot
+      - yarn
       - zsh
     state: present
 
