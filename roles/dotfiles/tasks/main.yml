@@ -34,3 +34,13 @@
     repo: "https://github.com/wbthomason/packer.nvim"
     dest: "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
     depth: 1
+
+- name: Ensures wallpaper directory exist
+  file:
+    path: ~/Pictures/Wallpapers
+    state: directory
+
+- name: Download wallpaper
+  get_url:
+    url: https://user-images.githubusercontent.com/27996771/129466074-64c92948-96b0-4673-be33-75ee26b82a6c.jpg
+    dest: ~/Pictures/Wallpapers/LostInMindNord.jpg
