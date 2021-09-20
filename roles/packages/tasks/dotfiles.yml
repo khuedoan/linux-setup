@@ -33,6 +33,7 @@
       - xorg-xrandr
       - xorg-xsetroot
       - yarn
+      - zoxide
       - zsh
     state: present
 
