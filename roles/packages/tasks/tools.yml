@@ -4,8 +4,10 @@
     name:
       - ansible
       - aria2
+      - bitwarden-cli
       - github-cli
       - glances
+      - jq
       - mpv
       - translate-shell
       - tree
