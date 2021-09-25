@@ -23,9 +23,11 @@
       - npm
       - pcmanfm-gtk3
       - playerctl
+      - python-pip
       - ripgrep
       - sxhkd
       - tmux
+      - wget
       - xclip
       - xdotool
       - xorg-server
