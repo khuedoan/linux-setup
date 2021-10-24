@@ -14,32 +14,3 @@
     path: "~/.ssh/id_ed25519"
     type: ed25519
   register: ssh_key
-
-- name: Using SSH on GitHub
-  block:
-    - name: Add SSH public key to GitHub
-      uri:
-        url: https://api.github.com/user/keys
-        method: POST
-        body:
-          title: "{{ ansible_hostname }}"
-          key: "{{ ssh_key.public_key }}"
-        body_format: json
-        headers:
-          Authorization: "token {{ github_access_token }}"
-        status_code:
-          - 201
-          - 422
-
-    - name: Always use SSH instead of HTTPS for GitHub repositories
-      git_config:
-        name: "url.git@github.com:khuedoan/.insteadOf"
-        scope: global
-        value: "https://github.com/khuedoan/"
-  rescue:
-    - debug:
-        msg: >
-          You're not me so you can't add new SSH key to my GitHub account.
-          If you forked this repository you can change the encrypted
-          GitHub access token with the admin:public_key permission
-          in the roles/sshkey/vars/main.yml file using Ansible Vault
