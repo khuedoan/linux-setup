@@ -4,6 +4,7 @@
     name:
       - alsa-utils
       - arandr
+      - arc-gtk-theme
       - autorandr
       - bat
       - bspwm
@@ -21,6 +22,7 @@
       - noto-fonts-emoji
       - noto-fonts-extra
       - npm
+      - papirus-icon-theme
       - pcmanfm-gtk3
       - playerctl
       - python-pip
