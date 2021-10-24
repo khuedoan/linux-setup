@@ -17,3 +17,9 @@ dotfiles:
 		--inventory hosts.ini \
 		--tags dotfiles \
 		main.yml
+
+games:
+	ansible-playbook \
+		--ask-become-pass \
+		--inventory hosts.ini \
+		games.yml
