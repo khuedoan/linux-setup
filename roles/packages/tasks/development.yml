@@ -13,7 +13,7 @@
     state: present
 
 - name: Install development tools from the AUR
-  aur:
+  kewlfft.aur.aur:
     name:
       - cloudflared-bin
       - lens-bin

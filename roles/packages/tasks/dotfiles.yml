@@ -46,7 +46,7 @@
     shell: /bin/zsh
 
 - name: Install dotfiles packages from the AUR
-  aur:
+  kewlfft.aur.aur:
     name:
       - libxft-bgra # TODO https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1
       - nerd-fonts-fira-code

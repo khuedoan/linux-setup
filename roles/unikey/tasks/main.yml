@@ -1,5 +1,5 @@
 - name: Install Vietnames input method
-  aur:
+  kewlfft.aur.aur:
     name: ibus-bamboo
     state: present
 

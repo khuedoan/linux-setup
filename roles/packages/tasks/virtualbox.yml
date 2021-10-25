@@ -9,7 +9,7 @@
 - name: Install VirtualBox Extension Pack
   become: yes
   become_user: aurbuilder
-  aur:
+  kewlfft.aur.aur:
     name: virtualbox-ext-oracle
     use: "{{ aur_helper }}"
     state: present

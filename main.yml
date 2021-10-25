@@ -1,6 +1,5 @@
 - hosts: all
   roles:
-    - role: kewlfft.aur
     - role: system-config
     - role: dotfiles
       tags: dotfiles
