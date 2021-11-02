@@ -25,7 +25,7 @@
 
 - name: Clone zsh plugin manager
   git:
-    repo: "https://github.com/zdharma/zinit.git"
+    repo: "https://github.com/zdharma-continuum/zinit.git"
     dest: "~/.zsh/zinit"
     depth: 1
 
