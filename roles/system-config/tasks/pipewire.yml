@@ -1,8 +1,0 @@
-- name: Install PipeWire
-  become: yes
-  pacman:
-    name:
-      - pipewire
-      - pipewire-alsa
-      - pipewire-pulse
-      - pavucontrol

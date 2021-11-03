@@ -1,2 +1,4 @@
 collections:
-  - name: kewlfft.aur
+  - source: https://github.com/khuedoan/ansible-collection-workstation.git
+    type: git
+    version: master

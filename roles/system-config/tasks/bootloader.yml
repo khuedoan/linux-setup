@@ -1,5 +1,0 @@
-- name: Set bootloader timeout
-  become: yes
-  lineinfile:
-    path: /boot/loader/loader.conf
-    line: timeout 0

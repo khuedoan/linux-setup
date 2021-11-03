@@ -1,9 +1,8 @@
 - hosts: all
   roles:
-    - role: system-config
-    - role: dotfiles
-      tags: dotfiles
-    - role: packages
-      tags: packages
-    - role: unikey
-    - role: ssh-key
+    - role: khuedoan.workstation.system_config
+    - role: khuedoan.workstation.dotfiles
+    - role: khuedoan.workstation.packages
+      tags: khuedoan.workstation.packages
+    - role: khuedoan.workstation.unikey
+    - role: khuedoan.workstation.ssh_key
