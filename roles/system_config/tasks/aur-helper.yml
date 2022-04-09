@@ -1,0 +1,5 @@
+- name: Install AUR helper
+  kewlfft.aur.aur:
+    name: paru-bin
+    use: makepkg
+    state: present

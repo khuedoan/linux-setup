@@ -1,0 +1,6 @@
+- name: Copy touchpad config file
+  become: yes
+  copy:
+    src: touchpad.conf
+    dest: /etc/X11/xorg.conf.d/30-touchpad.conf
+    mode: 0644

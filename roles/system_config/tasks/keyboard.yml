@@ -1,0 +1,19 @@
+- name: Install interception tools
+  become: yes
+  pacman:
+    name:
+      - interception-tools
+      - interception-caps2esc
+
+- name: Copy interception config
+  become: yes
+  copy:
+    src: udevmon.yaml
+    dest: /etc/interception/udevmon.yaml
+
+- name: Enable interception service
+  become: yes
+  systemd:
+    name: udevmon
+    state: started
+    enabled: yes

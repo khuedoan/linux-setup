@@ -1,0 +1,74 @@
+- name: Install dotfiles packages
+  become: yes
+  pacman:
+    name:
+      - alsa-utils
+      - arandr
+      - arc-gtk-theme
+      - autorandr
+      - bat
+      - bspwm
+      - dunst
+      - feh
+      - firefox
+      - fzf
+      - git
+      - light
+      - maim
+      - neovim
+      - nnn
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - npm
+      - papirus-icon-theme
+      - pcmanfm-gtk3
+      - playerctl
+      - python-pip
+      - ripgrep
+      - sxhkd
+      - tmux
+      - wget
+      - xclip
+      - xdotool
+      - xorg-server
+      - xorg-xinit
+      - xorg-xrandr
+      - xorg-xsetroot
+      - yarn
+      - zoxide
+      - zsh
+    state: present
+
+- name: Change default shell to Zsh
+  become: yes
+  user:
+    user: "{{ ansible_user_id }}"
+    shell: /bin/zsh
+
+- name: Install dotfiles packages from the AUR
+  kewlfft.aur.aur:
+    name:
+      - libxft-bgra-git # TODO https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1
+      - nerd-fonts-fira-code
+      - picom-git
+      - polybar
+    state: present
+
+- name: Clone custom packages source code
+  git:
+    repo: "https://github.com/khuedoan/{{ item }}"
+    dest: "~/.local/src/{{ item }}"
+  loop:
+    - dmenu
+    - slock
+    - st
+  register: custom_packages_sources
+
+- name: Install custom packages
+  become: yes
+  make:
+    chdir: "{{ item.invocation.module_args.dest }}"
+    target: install
+  loop: "{{ custom_packages_sources.results }}"

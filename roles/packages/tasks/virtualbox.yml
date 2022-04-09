@@ -1,0 +1,20 @@
+- name: Install VirtualBox
+  become: yes
+  package:
+    name:
+      - virtualbox
+      - virtualbox-host-modules-arch
+    state: present
+
+- name: Install VirtualBox Extension Pack
+  kewlfft.aur.aur:
+    name: virtualbox-ext-oracle
+    state: present
+
+- name: Add user to VirtualBox group
+  become: yes
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups:
+      - vboxusers
+    append: yes

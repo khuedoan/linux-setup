@@ -1,0 +1,29 @@
+- name: Copy pacman config file
+  become: yes
+  copy:
+    src: pacman.conf
+    dest: /etc/pacman.conf
+
+- name: Install reflector
+  become: yes
+  pacman:
+    name: reflector
+    state: present
+
+- name: Copy reflector config file
+  become: yes
+  copy:
+    src: reflector.conf
+    dest: /etc/xdg/reflector/reflector.conf
+
+- name: Enable reflector service
+  become: yes
+  systemd:
+    name: reflector
+    enabled: yes
+
+- name: Upgrade packages
+  become: yes
+  pacman:
+    update_cache: yes
+    upgrade: yes

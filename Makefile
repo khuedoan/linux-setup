@@ -1,9 +1,6 @@
 .POSIX:
 
-default: init run
-
-init:
-	ansible-galaxy install -r requirements.yml
+default: run
 
 run:
 	ansible-playbook \

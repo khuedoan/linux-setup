@@ -1,0 +1,6 @@
+ibus_config:
+  general/preload-engines: "['xkb:us::eng', 'Bamboo']"
+  general/engines-order: "['xkb:us::eng', 'Bamboo']"
+  general/hotkey/triggers: "['<Control><Shift>space']"
+  general/use-global-engine: "true"
+  panel/show-icon-on-systray: "false"
