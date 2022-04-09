@@ -1,6 +1,6 @@
-# Linux Setup
+# Workstation Setup
 
-Ansible playbooks for my Linux computers, using Ansible roles from my [workstation collection](https://github.com/khuedoan/ansible-collection-workstation)
+Ansible playbooks for my workstations.
 
 ## Supported distro
 
