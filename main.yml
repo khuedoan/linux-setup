@@ -2,6 +2,7 @@
   roles:
     - role: system_config
     - role: dotfiles
+      tags: dotfiles
     - role: packages
       tags: packages
     - role: unikey

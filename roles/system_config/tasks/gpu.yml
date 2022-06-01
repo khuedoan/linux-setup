@@ -1,0 +1,5 @@
+- name: Disable AMD GPU dynamic power management
+  become: true
+  copy:
+    src: 30-amdgpu-pm.rules
+    dest: /etc/udev/rules.d/30-amdgpu-pm.rules

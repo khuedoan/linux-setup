@@ -1,5 +1,5 @@
 - name: Install dotfiles packages
-  become: yes
+  become: true
   pacman:
     name:
       - alsa-utils
@@ -24,8 +24,12 @@
       - npm
       - papirus-icon-theme
       - pcmanfm-gtk3
+      - picom
       - playerctl
+      - polkit
+      - polybar
       - python-pip
+      - python-psutil
       - ripgrep
       - sxhkd
       - tmux
@@ -42,7 +46,7 @@
     state: present
 
 - name: Change default shell to Zsh
-  become: yes
+  become: true
   user:
     user: "{{ ansible_user_id }}"
     shell: /bin/zsh
@@ -50,10 +54,8 @@
 - name: Install dotfiles packages from the AUR
   kewlfft.aur.aur:
     name:
-      - libxft-bgra-git # TODO https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1
+      # - libxft-bgra-git # TODO https://gitlab.freedesktop.org/xorg/lib/libxft/-/merge_requests/1
       - nerd-fonts-fira-code
-      - picom-git
-      - polybar
     state: present
 
 - name: Clone custom packages source code
@@ -67,7 +69,7 @@
   register: custom_packages_sources
 
 - name: Install custom packages
-  become: yes
+  become: true
   make:
     chdir: "{{ item.invocation.module_args.dest }}"
     target: install
