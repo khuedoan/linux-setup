@@ -1,5 +1,5 @@
 - name: Install tools
-  become: yes
+  become: true
   pacman:
     name:
       - ansible

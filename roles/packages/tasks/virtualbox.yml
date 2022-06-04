@@ -1,5 +1,5 @@
 - name: Install VirtualBox
-  become: yes
+  become: true
   package:
     name:
       - virtualbox
@@ -12,9 +12,9 @@
     state: present
 
 - name: Add user to VirtualBox group
-  become: yes
+  become: true
   user:
     name: "{{ ansible_env.USER }}"
     groups:
       - vboxusers
-    append: yes
+    append: true

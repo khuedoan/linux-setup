@@ -1,5 +1,5 @@
 - name: Install OpenSSH
-  become: yes
+  become: true
   pacman:
     name: openssh
     state: present

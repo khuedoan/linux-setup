@@ -1,5 +1,5 @@
 - name: Copy touchpad config file
-  become: yes
+  become: true
   copy:
     src: touchpad.conf
     dest: /etc/X11/xorg.conf.d/30-touchpad.conf

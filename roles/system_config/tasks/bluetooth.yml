@@ -1,16 +1,16 @@
 - name: Install bluetooth
-  become: yes
+  become: true
   pacman:
     name:
       - bluez
       - bluez-utils
 
 - name: Enable bluetooth service
-  become: yes
+  become: true
   systemd:
     name: bluetooth
     state: started
-    enabled: yes
+    enabled: true
 
 # Connect to keyboard
 # bluetoothctl power on

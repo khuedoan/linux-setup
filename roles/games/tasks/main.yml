@@ -1,6 +1,6 @@
 # https://github.com/lutris/docs/blob/master/WineDependencies.md
 - name: Install Wine dependencies
-  become: yes
+  become: true
   pacman:
     name:
       - wine-staging
@@ -53,7 +53,7 @@
 
 # https://github.com/lutris/docs/blob/master/InstallingDrivers.md
 - name: Install drivers
-  become: yes
+  become: true
   pacman:
     name:
       - lib32-mesa
@@ -64,7 +64,7 @@
 
 # https://github.com/lutris/docs/blob/master/Battle.Net.md
 - name: Install additional dependencies required specifically for Battle.net
-  become: yes
+  become: true
   pacman:
     name:
       - lib32-gnutls
@@ -75,7 +75,7 @@
       - lib32-alsa-plugins
 
 - name: Install game launchers
-  become: yes
+  become: true
   pacman:
     name:
       - lutris

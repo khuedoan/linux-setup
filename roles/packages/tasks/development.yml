@@ -1,5 +1,5 @@
 - name: Install development tools
-  become: yes
+  become: true
   pacman:
     name:
       - gimp

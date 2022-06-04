@@ -21,7 +21,7 @@
   git:
     repo: "{{ dotfiles_repo }}"
     dest: "~"
-    update: yes
+    update: true
 
 - name: Clone zsh plugin manager
   git:
