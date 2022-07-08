@@ -17,6 +17,6 @@
   kewlfft.aur.aur:
     name:
       - cloudflared-bin
-      - lens-bin
       - kind
+      - openlens-bin
     state: present
