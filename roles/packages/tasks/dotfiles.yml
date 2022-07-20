@@ -13,6 +13,7 @@
       - firefox
       - fzf
       - git
+      - gvfs
       - light
       - maim
       - neovim

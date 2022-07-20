@@ -5,8 +5,10 @@
       - gimp
       - go
       - helm
+      - k9s
       - kubectl
       - kustomize
+      - python-pre-commit
       - rust
       - rust-src
       - terraform
@@ -17,6 +19,7 @@
   kewlfft.aur.aur:
     name:
       - cloudflared-bin
+      - dive-bin
       - kind
       - openlens-bin
     state: present
