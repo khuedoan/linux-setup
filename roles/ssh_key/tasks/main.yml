@@ -1,9 +1,3 @@
-- name: Install OpenSSH
-  become: true
-  pacman:
-    name: openssh
-    state: present
-
 - name: Ensure SSH configuration directory exists
   file:
     path: "~/.ssh/"
