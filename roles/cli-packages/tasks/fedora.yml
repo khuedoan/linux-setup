@@ -5,6 +5,7 @@
       - ansible
       - aria2
       - fzf
+      - gcc-c++
       - git
       - neovim
       - nnn

@@ -3,6 +3,7 @@
   dnf:
     name:
       - alacritty
+      - gnome-sound-recorder
 
 - name: Uninstall unused default GUI apps
   become: true
