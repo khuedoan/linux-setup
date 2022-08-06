@@ -1,0 +1,19 @@
+- name: Install GUI apps
+  become: true
+  dnf:
+    name:
+      - alacritty
+
+- name: Uninstall unused default GUI apps
+  become: true
+  dnf:
+    state: absent
+    name:
+      - gnome-boxes
+      - gnome-maps
+      - gnome-terminal
+      - gnome-weather
+      - libreoffice-calc
+      - libreoffice-impress
+      - libreoffice-writer
+      - mediawriter

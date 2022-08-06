@@ -1,0 +1,15 @@
+- name: Install CLI apps
+  become: true
+  dnf:
+    name:
+      - ansible
+      - aria2
+      - fzf
+      - git
+      - neovim
+      - nnn
+      - python-psutil
+      - ripgrep
+      - tmux
+      - zoxide
+      - zsh
