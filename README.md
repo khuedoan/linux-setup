@@ -5,6 +5,7 @@ Ansible playbooks for my workstations.
 ## Supported distro
 
 - [x] Arch Linux
+- [ ] Fedora
 
 ## Features
 

@@ -1,0 +1,14 @@
+- name: Add ibus-bamboo repository
+  become: true
+  yum_repository:  # TODO switch to dnf_repository?
+    name: ibus-bamboo
+    description: Bamboo - A Vietnamese input method
+    baseurl: "https://download.opensuse.org/repositories/home:/lamlng/Fedora_{{ ansible_distribution_major_version }}"
+    gpgkey: "https://download.opensuse.org/repositories/home:/lamlng/Fedora_{{ ansible_distribution_major_version }}/repodata/repomd.xml.key"
+  register: add_repo
+
+- name: Install ibus-bamboo
+  become: true
+  dnf:
+    name: ibus-bamboo
+    update_cache: "{{ add_repo.changed | bool }}"

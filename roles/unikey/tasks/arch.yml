@@ -1,0 +1,4 @@
+- name: Install ibus-bamboo
+  kewlfft.aur.aur:
+    name: ibus-bamboo
+    state: present
