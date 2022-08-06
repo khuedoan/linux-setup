@@ -1,0 +1,6 @@
+- name: Download KMonad binary
+  become: true
+  get_url:
+    url: "https://github.com/kmonad/kmonad/releases/download/{{ kmonad_version }}/kmonad-{{ kmonad_version }}-linux"
+    dest: /usr/bin/kmonad
+    mode: 0755

@@ -1,0 +1,35 @@
+- when: ansible_distribution == 'Archlinux'
+  include_tasks: arch.yml
+
+- when: ansible_distribution == 'Fedora'
+  include_tasks: fedora.yml
+
+- name: Create KMonad config directory
+  become: true
+  file:
+    path: /etc/kmonad
+    state: directory
+
+- name: Generate KMonad config file
+  become: true
+  template:
+    src: config.kbd.j2
+    dest: /etc/kmonad/config.kbd
+    mode: 0644
+  notify: Restart KMonad service
+
+- name: Create KMonad service file
+  become: true
+  copy:
+    src: kmonad.service
+    dest: /etc/systemd/system/kmonad.service
+    mode: 0644
+  notify: Restart KMonad service
+
+- name: Start and enable KMonad service
+  become: true
+  systemd:
+    name: kmonad
+    enabled: true
+    state: started
+  register: k3s_service

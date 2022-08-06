@@ -1,0 +1,5 @@
+- name: Restart KMonad service
+  become: true
+  service:
+    name: kmonad
+    state: restarted

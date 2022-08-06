@@ -1,0 +1,4 @@
+- name: Install KMonad
+  kewlfft.aur.aur:
+    name: kmonad-bin
+    state: present
