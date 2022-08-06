@@ -1,0 +1,10 @@
+- name: Create fonts directory
+  file:
+    path: "~/.local/share/fonts/FiraCode"
+    state: directory
+
+- name: Download fonts
+  unarchive:
+    src: "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraCode.zip"
+    dest: "~/.local/share/fonts/FiraCode"
+    remote_src: true
