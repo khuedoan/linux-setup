@@ -1,0 +1,6 @@
+- name: Install Docker
+  become: true
+  dnf:
+    name:
+      - docker
+      - docker-compose

@@ -1,0 +1,16 @@
+- include_tasks: "{{ ansible_distribution | lower }}.yml"
+
+- name: Add user to Docker group
+  become: true
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups:
+      - docker
+    append: true
+
+- name: Start and enable Docker service
+  become: true
+  systemd:
+    name: docker
+    enabled: true
+    state: started
