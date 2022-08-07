@@ -1,8 +1,4 @@
-- when: ansible_distribution == 'Archlinux'
-  include_tasks: arch.yml
-
-- when: ansible_distribution == 'Fedora'
-  include_tasks: fedora.yml
+- include_tasks: "{{ ansible_distribution | lower }}.yml"
 
 - name: Create KMonad config directory
   become: true
