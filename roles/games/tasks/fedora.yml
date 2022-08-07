@@ -1,0 +1,6 @@
+- name: Install game launchers
+  become: true
+  dnf:
+    name:
+      - lutris
+      - steam
