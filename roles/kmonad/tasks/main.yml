@@ -32,4 +32,3 @@
     name: kmonad
     enabled: true
     state: started
-  register: k3s_service
