@@ -1,21 +1,22 @@
 .POSIX:
 
+playbook = main
+tags = all
+
 default: run
+
+diff:
+	ansible-playbook \
+		--ask-become-pass \
+		--inventory hosts.ini \
+		--tags "${tags}" \
+		--check \
+		--diff \
+		"${playbook}.yml"
 
 run:
 	ansible-playbook \
 		--ask-become-pass \
 		--inventory hosts.ini \
-		main.yml
-
-dotfiles:
-	ansible-playbook \
-		--inventory hosts.ini \
-		--tags dotfiles \
-		main.yml
-
-games:
-	ansible-playbook \
-		--ask-become-pass \
-		--inventory hosts.ini \
-		games.yml
+		--tags "${tags}" \
+		"${playbook}.yml"
