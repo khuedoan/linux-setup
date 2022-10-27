@@ -23,18 +23,6 @@
     dest: "~"
     update: true
 
-- name: Clone zsh plugin manager
-  git:
-    repo: "https://github.com/zdharma-continuum/zinit.git"
-    dest: "~/.zsh/zinit"
-    depth: 1
-
-- name: Clone neovim package manager
-  git:
-    repo: "https://github.com/wbthomason/packer.nvim"
-    dest: "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
-    depth: 1
-
 - name: Ensures wallpaper directory exist
   file:
     path: ~/Pictures/Wallpapers
