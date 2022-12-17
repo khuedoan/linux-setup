@@ -4,8 +4,8 @@
     name:
       - ansible
       - aria2
-      - bitwarden-cli
       - btop
+      - direnv
       - github-cli
       - jq
       - mpv
