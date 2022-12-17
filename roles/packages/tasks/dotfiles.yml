@@ -34,6 +34,7 @@
       - ripgrep
       - sxhkd
       - tmux
+      - ttf-firacode-nerd
       - wget
       - xclip
       - xdotool
@@ -51,13 +52,6 @@
   user:
     user: "{{ ansible_user_id }}"
     shell: /bin/zsh
-
-- name: Install dotfiles packages from the AUR
-  kewlfft.aur.aur:
-    name:
-      # - libxft-git # TODO https://gitlab.freedesktop.org/xorg/lib/libxft/-/issues/12
-      - nerd-fonts-fira-code
-    state: present
 
 - name: Clone custom packages source code
   git:
