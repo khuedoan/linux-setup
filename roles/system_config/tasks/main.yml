@@ -1,7 +1,6 @@
 - include_tasks: sudo.yml
 - include_tasks: pacman.yml
 - include_tasks: aur-helper.yml
-- include_tasks: keyboard.yml
 - include_tasks: touchpad.yml
 - include_tasks: bluetooth.yml
 - include_tasks: pipewire.yml
