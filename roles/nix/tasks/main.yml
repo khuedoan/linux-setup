@@ -1,0 +1,21 @@
+- name: Install Nix
+  become: true
+  package:
+    name:
+      - nix
+    state: present
+
+- name: Add user to Nix group
+  become: true
+  user:
+    name: "{{ ansible_env.USER }}"
+    groups:
+      - nix-users
+    append: true
+
+- name: Enable Nix service
+  become: true
+  service:
+    name: nix-daemon
+    state: started
+    enabled: true

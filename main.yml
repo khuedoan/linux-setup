@@ -5,6 +5,8 @@
       tags: dotfiles
     - role: packages
       tags: packages
+    - role: nix
+      tags: nix
     - role: kmonad
       tags: kmonad
     - role: unikey
