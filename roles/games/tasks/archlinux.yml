@@ -4,6 +4,7 @@
   pacman:
     name:
       - wine-staging
+      - winetricks
       - giflib
       - lib32-giflib
       - libpng
