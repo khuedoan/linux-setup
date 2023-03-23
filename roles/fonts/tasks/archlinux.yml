@@ -1,0 +1,10 @@
+- name: Install fonts
+  become: true
+  pacman:
+    name:
+      - noto-fonts
+      - noto-fonts-cjk
+      - noto-fonts-emoji
+      - noto-fonts-extra
+      - ttf-firacode-nerd
+    state: present

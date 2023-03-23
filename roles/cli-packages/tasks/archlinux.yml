@@ -1,0 +1,21 @@
+- name: Install CLI apps
+  become: true
+  pacman:
+    name:
+      - ansible
+      - aria2
+      - fzf
+      - git
+      - go
+      - neovim
+      - nnn
+      - nodejs
+      - npm
+      - posix
+      - ripgrep
+      - rust
+      - tmux
+      - tree
+      - unzip
+      - zoxide
+      - zsh

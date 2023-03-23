@@ -1,0 +1,17 @@
+- hosts: all
+  roles:
+    - role: dotfiles
+      tags: dotfiles
+    - role: cli-packages
+      tags: cli
+    - role: nix
+      tags: cli
+    - role: docker
+      tags: cli
+    - role: interception-tools
+      tags: gui
+    - role: fonts
+      tags: gui
+    - role: sway
+      tags: gui
+    - role: ssh_key

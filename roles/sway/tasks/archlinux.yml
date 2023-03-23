@@ -1,0 +1,12 @@
+- name: Install packages for Sway desktop
+  become: true
+  pacman:
+    name:
+      - i3status
+      - polkit
+      - sway
+      - swaybg
+      - python-i3ipc
+      - swaylock
+      - xorg-xwayland
+      - light
