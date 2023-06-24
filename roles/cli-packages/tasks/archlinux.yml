@@ -4,6 +4,7 @@
     name:
       - ansible
       - aria2
+      - base-devel
       - fzf
       - git
       - go
@@ -11,6 +12,8 @@
       - nnn
       - nodejs
       - npm
+      - pass
+      - pass-otp
       - posix
       - ripgrep
       - rust
